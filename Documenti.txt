@@ -1,18 +1,18 @@
 Product Backlog -------------------------------------------------------------------------------------------------------------------------------------------
-	link: https://drive.google.com/file/d/1gjjld6mEg8ic1H6RgtMUwTqsZ75TCq8k/view?usp=share_link
+	link: https://drive.google.com/file/d/1gjjld6mEg8ic1H6RgtMUwTqsZ75TCq8k/view?usp=sharing
 Software Architecture -------------------------------------------------------------------------------------------------------------------------------------
 	link: https://drive.google.com/file/d/1P8gjZkTN5IylcJsBZMmPUzVNuq15g82T/view?usp=share_link
 Pre-Game --------------------------------------------------------------------------------------------------------------------------------------------------
 	link: https://docs.google.com/presentation/d/1mk8jT-t6VtdLlY_BMlfm5ies4qUxkSKi/edit?usp=share_link&ouid=114462043892078627059&rtpof=true&sd=true
 Product Backlog First Sprint ------------------------------------------------------------------------------------------------------------------------------
-	link:
+	link: https://drive.google.com/file/d/1lNMu7WH4iWtV2jmdlc5gX3s6BfU6K8Dv/view?usp=share_link
 Refinement Software Architecture First Sprint -------------------------------------------------------------------------------------------------------------
 	link: https://drive.google.com/file/d/14sDP8QtTDJ9xhyd_K3-uOGMnm-y-C0PV/view?usp=share_link
 Retrospective First Sprint --------------------------------------------------------------------------------------------------------------------------------
-	link:
+	link: https://drive.google.com/file/d/1BJAWssxaWKnDV6xRdWaetyOCZQFGuArQ/view?usp=share_link
 Review First Sprint Report --------------------------------------------------------------------------------------------------------------------------------
-	link:
+	link: https://drive.google.com/file/d/12iTfr3mF5soS01kvF2uG2skU7HWcvi25/view?usp=share_link
 First Sprint ----------------------------------------------------------------------------------------------------------------------------------------------
 	link:
 Product Backlog Second Sprint -----------------------------------------------------------------------------------------------------------------------------
-	link:
+	link: https://drive.google.com/file/d/1ZWLb-OEObuCwu468Yc2jsa2S0oQuK4Me/view?usp=share_link
