@@ -1,5 +1,5 @@
 Product Backlog -------------------------------------------------------------------------------------------------------------------------------------------
-	link: https://drive.google.com/file/d/1gjjld6mEg8ic1H6RgtMUwTqsZ75TCq8k/view?usp=sharing
+	link: https://drive.google.com/file/d/1gjjld6mEg8ic1H6RgtMUwTqsZ75TCq8k/view?usp=share_link
 Software Architecture -------------------------------------------------------------------------------------------------------------------------------------
 	link: https://drive.google.com/file/d/1P8gjZkTN5IylcJsBZMmPUzVNuq15g82T/view?usp=share_link
 Pre-Game --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ Refinement Software Architecture First Sprint ----------------------------------
 Retrospective First Sprint --------------------------------------------------------------------------------------------------------------------------------
 	link: https://drive.google.com/file/d/1BJAWssxaWKnDV6xRdWaetyOCZQFGuArQ/view?usp=share_link
 Review First Sprint Report --------------------------------------------------------------------------------------------------------------------------------
-	link: https://drive.google.com/file/d/12iTfr3mF5soS01kvF2uG2skU7HWcvi25/view?usp=share_link
+	link: https://drive.google.com/file/d/12iTfr3mF5soS01kvF2uG2skU7HWcvi25/view?usp=sharE_link
 First Sprint ----------------------------------------------------------------------------------------------------------------------------------------------
 	link:
 Product Backlog Second Sprint -----------------------------------------------------------------------------------------------------------------------------
