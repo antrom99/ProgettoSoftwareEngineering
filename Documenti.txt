@@ -13,6 +13,6 @@ Retrospective First Sprint -----------------------------------------------------
 Review First Sprint Report --------------------------------------------------------------------------------------------------------------------------------
 	link: https://drive.google.com/file/d/12iTfr3mF5soS01kvF2uG2skU7HWcvi25/view?usp=sharE_link
 First Sprint ----------------------------------------------------------------------------------------------------------------------------------------------
-	link:
+	link: https://unisalerno-my.sharepoint.com/:p:/g/personal/a_nocerino15_studenti_unisa_it/EYMaaO3kTpdNmT-PYTGb8f0BuJycRdcHzmDSQamPVj9-3w?e=fHDxDe
 Product Backlog Second Sprint -----------------------------------------------------------------------------------------------------------------------------
-	link: https://drive.google.com/file/d/1lNMu7WH4iWtV2jmdlc5gX3s6BfU6K8Dv/view?usp=share_link
+	link: https://drive.google.com/drive/u/1/folders/1TgE3ebcbHkTJv6hbi76Dy_VcW2lJgIoI
