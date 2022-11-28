@@ -31,7 +31,7 @@ public class UploadCommand implements Command {
                 InputStream io = new FileInputStream(file);
                 Image img = new Image(io);
                
-                drawingSurface.drawImage(img, 0, 0);
+                drawingSurface.drawImage(img, 0, 0,793,715);
             } catch (IOException ex) {
                 System.out.println("Error!");
             }
