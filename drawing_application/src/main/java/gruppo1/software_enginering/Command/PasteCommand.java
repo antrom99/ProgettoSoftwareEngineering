@@ -57,6 +57,7 @@ public class PasteCommand implements Command{
 
             Command command = new SelectionCommand(selection,shapeCopy, drawingSurface);
             command.execute();
+            selection.setShape_element(linePaste);;
 
         }
 
@@ -75,7 +76,7 @@ public class PasteCommand implements Command{
 
             Command command = new SelectionCommand(selection,shapeCopy, drawingSurface);
             command.execute();
-            //selection.setShape_element(rectanglePaste); CHECK COLOR NOT CHANGE !!!
+            selection.setShape_element(rectanglePaste); //CHECK COLOR NOT CHANGE !!!
 
         }
 
@@ -94,6 +95,7 @@ public class PasteCommand implements Command{
 
             Command command = new SelectionCommand(selection,shapeCopy, drawingSurface);
             command.execute();
+            selection.setShape_element(ellipsePaste);
             
         }
 
