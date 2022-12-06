@@ -4,7 +4,10 @@ package gruppo1.software_enginering.Shape;
 //import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 
 public class MyEllipse implements MyShape {
@@ -13,6 +16,53 @@ public class MyEllipse implements MyShape {
     private Ellipse myEllipse;
     private double pressedPoint_x;
     private double pressedPoint_y;
+
+
+    public MyEllipse (Ellipse ellipse){
+        this.myEllipse = ellipse;
+        this.pressedPoint_x= ellipse.getCenterX();
+        this.pressedPoint_y = ellipse.getCenterY();
+        this.myEllipse.setFill(ellipse.getFill());
+        this.myEllipse.setStroke(ellipse.getStroke());
+        this.myEllipse.setStrokeWidth(ellipse.getStrokeWidth());
+
+    }
+
+    public MyEllipse(String st){
+
+        String[] split;
+
+        st=st.replace("Ellipse", "");
+                    st=st.replace("centerX", "");
+                    st=st.replace("centerY", "");
+                    st=st.replace("radiusX", "");
+                    st=st.replace("radiusY", "");
+                    st=st.replace("fill", "");
+                    st=st.replace("width", "");
+
+
+                    split=st.split(",");
+
+                    this.myEllipse = new Ellipse(Double.parseDouble(split[0]), Double.parseDouble(split[1]),Double.parseDouble(split[2]), Double.parseDouble(split[3]));
+                    this.pressedPoint_x=Double.parseDouble(split[0]);
+                    this.pressedPoint_y= Double.parseDouble(split[1]);
+
+                    if(split[4].contains("null")){
+
+                        this.myEllipse.setFill(null);
+
+                    } else{
+
+                        this.myEllipse.setFill(Paint.valueOf(split[4]));
+                    }
+
+                        
+
+                    this.myEllipse.setStroke(Paint.valueOf(split[5]));
+                    this.myEllipse.setStrokeWidth(Double.parseDouble(split[6]));
+
+
+    }
     public MyEllipse(double pressedPoint_x, double pressedPoint_y, Color strokeColor, Color fillColor, boolean isFill) {
 
         this.myEllipse = new Ellipse(pressedPoint_x, pressedPoint_y, 0, 0);
@@ -99,96 +149,40 @@ public class MyEllipse implements MyShape {
         
     }
 
-    /*private Ellipse myEllipse ;
-    private Color fillColor;
-    private Color strokeColor;
-    private boolean fill;
-
-
-    public MyEllipse() {
+    @Override
+    public MyShape cloneShape() {
+        double offset_x = this.myEllipse.getCenterX()+this.myEllipse.getTranslateX();
+        double offset_y = this.myEllipse.getCenterY()+this.myEllipse.getTranslateY();
+        Ellipse shapeForCopy = new Ellipse(offset_x, offset_y, this.myEllipse.getRadiusX(), this.myEllipse.getRadiusY());
+        shapeForCopy.setStroke(this.myEllipse.getStroke());
+        shapeForCopy.setFill(this.myEllipse.getFill());
+        shapeForCopy.setStrokeWidth(this.myEllipse.getStrokeWidth());
+        MyEllipse clone = new MyEllipse(shapeForCopy);
+        return clone;
     }
-
-    public MyEllipse(Point2D pressedPoint2D, Point2D releasedPoint2D, Color fillColor, Color strokeColor,
-            boolean fill) {
-        if ( releasedPoint2D.getY()<0)
-            releasedPoint2D = new Point2D(releasedPoint2D.getX(), 0);
-        if ( releasedPoint2D.getX()<0)
-            releasedPoint2D = new Point2D( 0,releasedPoint2D.getY() ); 
-        if ( releasedPoint2D.getY()>715)
-            releasedPoint2D = new Point2D(releasedPoint2D.getX(), 715);
-        if ( releasedPoint2D.getX()>793)
-            releasedPoint2D = new Point2D( 793,releasedPoint2D.getY() );      
-        this.myEllipse = new Ellipse(startPointforDrawing(pressedPoint2D, releasedPoint2D).getX(), startPointforDrawing(pressedPoint2D, releasedPoint2D).getY(), getWidth(pressedPoint2D, releasedPoint2D)/2, getHeigth(pressedPoint2D, releasedPoint2D)/2);
-        this.fillColor = fillColor;
-        this.strokeColor = strokeColor;
-        this.fill = fill;
-    }
-    // raggio lungo x
-    public double getWidth(Point2D pressedPoint2D, Point2D releasedPoint2D){
-        return Math.abs(pressedPoint2D.getX()-releasedPoint2D.getX());
-    }
-    // raggio lungo y
-    public double getHeigth(Point2D pressedPoint2D, Point2D releasedPoint2D){
-
-        return Math.abs(pressedPoint2D.getY()-releasedPoint2D.getY());
-
-    }
-
-    public Point2D startPointforDrawing(Point2D pressedPoint2D, Point2D releasedPoint2D){
-        return new Point2D(Math.min(pressedPoint2D.getX(), releasedPoint2D.getX())+this.getWidth(pressedPoint2D,releasedPoint2D)/2, Math.min(pressedPoint2D.getY(), releasedPoint2D.getY())+this.getHeigth( pressedPoint2D, releasedPoint2D)/2);
-
-
-    }
-
-
 
     @Override
-    public void draw(/*GraphicsContext drawingSurface*//*  Pane drawingSurface) {
-
+    public Shape getShape() {
         
-        myEllipse.setFill(null);
-        myEllipse.setStroke(strokeColor);
-        
-        if(fill){
-            myEllipse.setFill(fillColor);
-            drawingSurface.getChildren().add(myEllipse);
-        }else{
-            drawingSurface.getChildren().add(myEllipse);
-        }
-        
-        /*drawingSurface.setFill(fillColor);
-        drawingSurface.setStroke(strokeColor);
-        if(fill){
-            drawingSurface.fillOval(this.startPointforDrawing().getX(), this.startPointforDrawing().getY(), this.getWidth(), this.getHeigth());
-        }
-        drawingSurface.strokeOval(this.startPointforDrawing().getX(), this.startPointforDrawing().getY(), this.getWidth(), this.getHeigth());*/
-        
-   /*  }
-
-
-    public Color getFillColor() {
-        return fillColor;
+        return this.getMyEllipse();
     }
 
-    public void setFillColor(Color fillColor) {
-        this.fillColor = fillColor;
+    @Override
+    public Rectangle view() {
+        Rectangle rect = new Rectangle(this.myEllipse.getCenterX()-this.myEllipse.getRadiusX()-3, this.myEllipse.getCenterY()-this.myEllipse.getRadiusY()-3,this.myEllipse.getRadiusX()*2+6, this.myEllipse.getRadiusY()*2+6);
+        rect.setStyle(
+                    "-fx-stroke: blue; " +
+                    "-fx-stroke-width: 2px; " +
+                    "-fx-stroke-dash-array: 12 2 4 2; " +
+                    "-fx-stroke-dash-offset: 6; " +
+                    "-fx-stroke-line-cap: butt; " +
+                    "-fx-fill: rgba(255, 255, 255, .0);"
+        );
+
+        return rect;
     }
 
-    public Color getStrokeColor() {
-        return strokeColor;
-    }
+    
 
-    public void setStrokeColor(Color strokeColor) {
-        this.strokeColor = strokeColor;
-    }
-
-    public boolean isFill() {
-        return fill;
-    }
-
-    public void setFill(boolean fill) {
-        this.fill = fill;
-    }
-*/
-
+   
 }

@@ -33,7 +33,7 @@ public class DeleteCommand implements Command{
     public void execute() {
 
 
-        //TO DO STA              M I N K I A !!!!
+        
 
 
         this.drawingSurface.getChildren().remove(this.shape);

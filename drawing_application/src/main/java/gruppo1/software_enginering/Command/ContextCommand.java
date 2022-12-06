@@ -4,16 +4,13 @@ import java.util.ArrayList;
 
 
 import gruppo1.software_enginering.SelectionModel;
+import gruppo1.software_enginering.Shape.MyShape;
 import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-//import javafx.scene.shape.Circle;
-//import javafx.scene.shape.Ellipse;
-//import javafx.scene.shape.Line;
-//import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 public class ContextCommand implements Command{
@@ -22,7 +19,7 @@ public class ContextCommand implements Command{
     private MouseEvent event;
     private Pane drawingSurface;
    // private ContextMenu contextMenu;
-    private static Shape shapeCopy;
+    private static MyShape shapeCopy;
     private ArrayList<MenuItem> list = new ArrayList<>();
     
 
@@ -32,13 +29,13 @@ public class ContextCommand implements Command{
 
 
 
-    public static Shape getShapeCopy() {
+    public static MyShape getShapeCopy() {
         return shapeCopy;
     }
 
 
 
-    public static void setShapeCopy(Shape shapeCopy) {
+    public static void setShapeCopy(MyShape shapeCopy) {
         ContextCommand.shapeCopy = shapeCopy;
     }
 
@@ -81,24 +78,6 @@ public class ContextCommand implements Command{
     }
 
     public ContextCommand(){}
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Override

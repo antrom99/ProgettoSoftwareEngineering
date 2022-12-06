@@ -30,10 +30,7 @@ public class MoveCommand implements Command{
         double release_x = event.getX()-x;
         double release_y = event.getY()-y;
 
-        /*if(release_x >773)
-            release_x = 773;
-        if(release_y > 715)
-            release_y = 715;*/
+        //Check per la finestra
         if(view != null){
             if(view.getX()+view.getWidth()+release_x>773)
                 release_x = 773-view.getX()-view.getWidth();

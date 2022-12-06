@@ -7,14 +7,57 @@ package gruppo1.software_enginering.Shape;
 //import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 //import javafx.scene.shape.Shape;
+import javafx.scene.shape.Shape;
 
 
 public class MyRectangle implements MyShape  {
     Rectangle myRectangle;
     private double pressedPoint_x;
     private double pressedPoint_y;
+
+    public MyRectangle(String st){
+        String split[];
+        st=st.replace("Rectangle", " ");
+        st=st.replaceFirst("x", "");
+        st=st.replace("y", "");
+        st=st.replace("width", "");
+        st=st.replace("height", "");
+        st=st.replace("fill", "");
+
+
+        split=st.split(",");
+
+        this.myRectangle= new Rectangle(Double.parseDouble(split[0]), Double.parseDouble(split[1]),Double.parseDouble(split[2]), Double.parseDouble(split[3]));
+        this.pressedPoint_x = Double.parseDouble(split[0]);
+        this.pressedPoint_y = Double.parseDouble(split[1]);
+
+        if(split[4].contains("null")){
+
+            this.myRectangle.setFill(null);
+
+        }else{
+
+            this.myRectangle.setFill(Paint.valueOf(split[4]));
+        }
+
+
+        this.myRectangle.setStroke(Paint.valueOf(split[5]));
+        this.myRectangle.setStrokeWidth(Double.parseDouble(split[6]));
+    }
+
+    public MyRectangle(Rectangle rectangle) {
+        this.myRectangle = rectangle;
+        this.pressedPoint_x= rectangle.getX();
+        this.pressedPoint_y = rectangle.getY();
+        this.myRectangle.setFill(rectangle.getFill());
+        this.myRectangle.setStroke(rectangle.getStroke());
+        this.myRectangle.setStrokeWidth(rectangle.getStrokeWidth());
+    }
+
+   
 
     public MyRectangle(double pressedPoint_x, double pressedPoint_y, Color strokeColor, Color fillColor, boolean isFill) {
         this.myRectangle = new Rectangle(pressedPoint_x, pressedPoint_y, 0, 0);
@@ -98,63 +141,55 @@ public class MyRectangle implements MyShape  {
         this.setWidth(dragPoint_x);
         
     }
-
-    
-
-    
-
-
-    
-   
-
-
-    /*public MyRectangle() {
-    }
-
-    public MyRectangle(Point2D pressedPoint2D, Point2D releasedPoint2D, Color fillColor, Color strokeColor,
-            boolean fill) {
-      
-        this.myRectangle = new Rectangle(startPointforDrawing(pressedPoint2D, releasedPoint2D).getX(), startPointforDrawing(pressedPoint2D, releasedPoint2D).getY(), getWidth(pressedPoint2D, releasedPoint2D), getHeigth(pressedPoint2D, releasedPoint2D));
-        myRectangle.setStroke(strokeColor);
-        myRectangle.setFill(Color.TRANSPARENT);
-        if (fill){
-            myRectangle.setFill(fillColor);
-        }
-    }
-
-    public double getWidth(Point2D pressedPoint2D, Point2D releasedPoint2D){
-        return Math.abs(pressedPoint2D.getX()-releasedPoint2D.getX());
-    }
-
-    public double getHeigth(Point2D pressedPoint2D, Point2D releasedPoint2D){
-
-        return Math.abs(pressedPoint2D.getY()-releasedPoint2D.getY());
-
-    }
-
-    public Point2D startPointforDrawing(Point2D pressedPoint2D, Point2D releasedPoint2D){ 
-
-        if ( releasedPoint2D.getY()<0)
-             releasedPoint2D = new Point2D(releasedPoint2D.getX(), 0);
-        if ( releasedPoint2D.getX()<0)
-             releasedPoint2D = new Point2D( 0,releasedPoint2D.getY() ); 
-        return new Point2D(Math.min(pressedPoint2D.getX(), releasedPoint2D.getX()), Math.min(pressedPoint2D.getY(), releasedPoint2D.getY()));
-    }
-
-
-  
+   /*  public MyRectangle(double x, double y, double width, double height){
+        this.myRectangle = new Rectangle(x, y, width, height);
+        this.
+    }*/
 
     @Override
-    public void draw(/*GraphicsContext drawingSurface*/ /*Pane drawingSurface) {
+    public MyRectangle cloneShape() {
+
+                        
+                        double offset_x = this.myRectangle.getX()+this.myRectangle.getTranslateX();
+                        double offset_y = this.myRectangle.getY()+this.myRectangle.getTranslateY();
+                        Rectangle shapeForCopy = new Rectangle(offset_x,offset_y, this.myRectangle.getWidth(), this.myRectangle.getHeight());
+                        
+                        shapeForCopy.setStroke(this.myRectangle.getStroke());
+                        shapeForCopy.setFill(this.myRectangle.getFill());
+                        shapeForCopy.setStrokeWidth(this.myRectangle.getStrokeWidth());
+                        MyRectangle clone = new MyRectangle(shapeForCopy);
+                        
+                        return clone;
+                        //drawingPane.getChildren().remove(rect);
+                        //drawingPane.getChildren().add(clone);
+                        //selection.setShape_element(clone);
         
-        drawingSurface.getChildren().add(myRectangle);
         
     }
 
-    public Rectangle getMyRectangle() {
-        return myRectangle;
-    }*/
-    
+    @Override
+    public Shape getShape() {
+        
+        return this.getMyRectangle();
+    }
 
+    @Override
+    public Rectangle view() {
+        Rectangle rect = new Rectangle(this.myRectangle.getX()-3, this.myRectangle.getY()-3, this.myRectangle.getWidth()+6, this.myRectangle.getHeight()+6);
+        rect.setStyle(
+                    "-fx-stroke: blue; " +
+                    "-fx-stroke-width: 2px; " +
+                    "-fx-stroke-dash-array: 12 2 4 2; " +
+                    "-fx-stroke-dash-offset: 6; " +
+                    "-fx-stroke-line-cap: butt; " +
+                    "-fx-fill: rgba(255, 255, 255, .0);"
+        );
+
+        return rect;
+        
+    }
+
+
+    
   
 }

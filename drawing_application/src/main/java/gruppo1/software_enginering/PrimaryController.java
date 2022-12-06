@@ -116,33 +116,19 @@ public class PrimaryController {
 
         if(file != null){
 
-            try{
-                
+            try{   
                 PrintWriter out = new PrintWriter(new FileWriter(file)); 
                 FileOutputStream fos = new FileOutputStream(file);
-
-
                 for(Node s : Canvas.getChildren()){
                     out.print(s);
-
                     System.out.println();
-
                     out.print("\n");
-
                 }
-
-
-
                 fos.close();
-
                 out.close();
 
-
-
             }catch(IOException ex){
-
                 System.out.println("Error");
-
             }
 
         }
@@ -257,9 +243,7 @@ public class PrimaryController {
         Command command = appContext.onMouseDrag(event);
         if (command !=null)
             inv.execute(command);
-        
-
-        }
+    }
 
         
     
@@ -267,17 +251,9 @@ public class PrimaryController {
     void clickRelase(MouseEvent event) {
 
         appContext.onMouseReleased(event);
+    }
 
-        
-        
-            }
-
-    
-    
-    
-
-   
-
+ 
 
     @FXML
     void click_fill_color_checkbox(ActionEvent event) {
