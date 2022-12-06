@@ -21,6 +21,6 @@ Retrospective Second Sprint ----------------------------------------------------
 Review Second Sprint Report --------------------------------------------------------------------------------------------------------------------------------
 	link: https://drive.google.com/file/u/1/d/1LI7En320OGLh0VEwtoAZId737U9pGvtZ/view?usp=drive_open
 Second Sprint ----------------------------------------------------------------------------------------------------------------------------------------------
-	link:
+	link: https://docs.google.com/presentation/d/1TigfzvqavdMfM3bHVE4rFtwGl6o2yiWr/edit#slide=id.p1
 Product Backlog Third Sprint -----------------------------------------------------------------------------------------------------------------------------
 	link: https://drive.google.com/file/d/14Zxdehw_jIOYuYHZsw8dVN7v25LGG1Sp/view
