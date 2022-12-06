@@ -6,14 +6,11 @@ package gruppo1.software_enginering;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import gruppo1.software_enginering.Command.Command;
 import gruppo1.software_enginering.Command.Invoker;
+import gruppo1.software_enginering.Command.SaveCommand;
 import gruppo1.software_enginering.Command.UploadCommand;
 import gruppo1.software_enginering.StateUpdate.Context;
 import gruppo1.software_enginering.StateUpdate.Edit;
@@ -23,7 +20,7 @@ import gruppo1.software_enginering.StateUpdate.SelectRectangleDraw;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
-import javafx.scene.Node;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
@@ -108,30 +105,11 @@ public class PrimaryController {
         appContext.resetMode(Canvas);
         
         
-        FileChooser openFile = new FileChooser();
+        File file = FileChooser("save");
+        Command command = new SaveCommand(file, Canvas);
+        commandExecute(command);
 
-        openFile.setTitle("Save file");
-
-        File file = openFile.showSaveDialog(border_pane.getScene().getWindow());
-
-        if(file != null){
-
-            try{   
-                PrintWriter out = new PrintWriter(new FileWriter(file)); 
-                FileOutputStream fos = new FileOutputStream(file);
-                for(Node s : Canvas.getChildren()){
-                    out.print(s);
-                    System.out.println();
-                    out.print("\n");
-                }
-                fos.close();
-                out.close();
-
-            }catch(IOException ex){
-                System.out.println("Error");
-            }
-
-        }
+        
     }
     @FXML
     void selectContourColor(ActionEvent event){
@@ -275,10 +253,9 @@ public class PrimaryController {
 
     @FXML
     void upload_function(ActionEvent event) {
-
+        File file = FileChooser("upload");
         
-
-        Command command = new UploadCommand(Canvas/*drawingSurface*/,border_pane);
+        Command command = new UploadCommand(Canvas,file);
         commandExecute(command);
 
 
@@ -325,6 +302,23 @@ public class PrimaryController {
         inv.execute(comand);
     }
 
+    public File FileChooser( String op){
+        if(op.equals("upload")){
+            FileChooser openFile = new FileChooser();
+            openFile.setTitle("Open File :");
+            File file = openFile.showOpenDialog(border_pane.getScene().getWindow());
+            return file;
+        }else if (op.equals("save")){
+            FileChooser openFile = new FileChooser();
+            openFile.setTitle("Save File :");
+            File file = openFile.showSaveDialog(border_pane.getScene().getWindow());
+            return file;
+
+        }
+
+        System.err.println("Incorrect parameter");
+        return null;
+    }
    
 }
 

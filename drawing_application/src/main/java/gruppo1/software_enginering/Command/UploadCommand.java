@@ -9,22 +9,23 @@ import java.util.Scanner;
 
 import gruppo1.software_enginering.Shape.MyShape;
 import gruppo1.software_enginering.Shape.ShapeFactory;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 
 
 
-import javafx.stage.FileChooser;
+
 
 public class UploadCommand implements Command {
 
-    private /*GraphicsContext drawingSurface*/ Pane drawingSurface;
-    private BorderPane borderPane;
+    private  Pane drawingSurface;
+    private File file;
+    
 
-    public UploadCommand(/*GraphicsContext drawingSurface*/ Pane drawingSurface, BorderPane borderPane) {
+    public UploadCommand( Pane drawingSurface,File file) {
         this.drawingSurface = drawingSurface;
-        this.borderPane = borderPane;
+        this.file = file;
+        
     }
 
 
@@ -36,9 +37,7 @@ public class UploadCommand implements Command {
     @Override
     public void execute() {
         
-        FileChooser openFile = new FileChooser();
-        openFile.setTitle("Open File");
-        File file = openFile.showOpenDialog(borderPane.getScene().getWindow());
+        
         if (file != null) {
 
             drawingSurface.getChildren().clear();;
@@ -57,28 +56,7 @@ public class UploadCommand implements Command {
                 }
 
                scanner.close();              
-                
-                
-                
-
-
-
-                
             
-             
-
-
-
-                
-                
-               
-
-                
-                
-
-                
-               
-              
 
             } catch (IOException ex) {
                 System.out.println("Error!");
