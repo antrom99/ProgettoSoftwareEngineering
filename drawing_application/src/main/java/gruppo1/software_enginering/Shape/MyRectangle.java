@@ -240,20 +240,7 @@ public class MyRectangle implements MyShape  {
         
     }
 
-    @Override
-    public Point2D startPoint() {
-        
-        return new Point2D(pressedPoint_y, pressedPoint_x);
-    }
-
-    @Override
-    public void ResizeShape(double dragx, double dragy) {
-        
-
-        
-        updateAttribute(dragx,dragy);
-        
-    }
+  
 
 
     

@@ -159,17 +159,7 @@ public class MyLine implements MyShape{
         return rect;
     }
 
-    @Override
-    public Point2D startPoint() {
-        
-        return new Point2D(this.myLine.getStartX(), this.myLine.getStartY());
-    }
-
-    @Override
-    public void ResizeShape(double dragx, double dragy) {
-        
-        
-    }
+   
 
 
     

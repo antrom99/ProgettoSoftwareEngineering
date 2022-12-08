@@ -46,7 +46,7 @@ public class MoveCommand implements Command{
         if( shape!=null) {
             
             shape.setTranslateX( release_x);
-        
+            
             shape.setTranslateY( release_y);
         
 

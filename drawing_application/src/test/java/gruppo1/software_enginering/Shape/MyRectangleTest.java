@@ -38,7 +38,7 @@ public class MyRectangleTest {
         assertEquals(30, actual.myRectangle.getHeight());
         width = 1000;
         actual.setHeight(width);
-        assertEquals(715, actual.myRectangle.getHeight());
+        assertEquals(670, actual.myRectangle.getHeight());
 
     }
 

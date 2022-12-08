@@ -71,9 +71,9 @@ public class PasteCommandTest {
 
 
           
-        //Check Deselection of the clone shape
+        //Check Selection of the clone shape
         selection.clear(drawingSurface);
-        assertEquals(null, selection.getView_element());
+        assertEquals(false, selection.contains(myRectangle.getShape()));
         assertEquals(2, drawingSurface.getChildren().size());
         System.out.println("Nodes number of Pane after the Paste Command and disable selection : "+drawingSurface.getChildren().size());
 
@@ -146,7 +146,7 @@ public class PasteCommandTest {
           
         //Check Deselection of the clone shape
         selection.clear(drawingSurface);
-        assertEquals(null, selection.getView_element());
+        assertEquals(false, selection.contains(myEllipse.getShape()));
         assertEquals(2, drawingSurface.getChildren().size());
         System.out.println("Nodes number of Pane after the Paste Command and disable selection : "+drawingSurface.getChildren().size());
 
@@ -219,7 +219,7 @@ public class PasteCommandTest {
           
         //Check Deselection of the clone shape
         selection.clear(drawingSurface);
-        assertEquals(null, selection.getView_element());
+        assertEquals(false, selection.contains(myLine.getShape()));
         assertEquals(2, drawingSurface.getChildren().size());
         System.out.println("Nodes number of Pane after the Paste Command and disable selection : "+drawingSurface.getChildren().size());
 

@@ -58,7 +58,7 @@ public class MyEllipseTest {
         assertEquals(15, actual.getMyEllipse().getRadiusY());
         radius = 1000;
         actual.setRadiusY(radius);
-        assertEquals(715.0/2, actual.getMyEllipse().getRadiusY());
+        assertEquals(670.0/2, actual.getMyEllipse().getRadiusY());
     }
 
 

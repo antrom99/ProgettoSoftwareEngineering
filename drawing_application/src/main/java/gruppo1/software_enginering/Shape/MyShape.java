@@ -14,8 +14,7 @@ public interface MyShape   {
     public abstract MyShape cloneShape();
     public abstract Shape getShape();
     public abstract Rectangle view();
-    public abstract Point2D startPoint();
-    public abstract void ResizeShape(double dragx, double dragy);
+   
     //public abstract Rectangle
     //public static void updateAttribute(Shape shape,double dragPoint_x, double dragPoint_y);
     

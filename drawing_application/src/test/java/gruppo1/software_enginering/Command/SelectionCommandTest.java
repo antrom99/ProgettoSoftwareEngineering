@@ -47,7 +47,7 @@ public class SelectionCommandTest {
         selectionCommand.execute();
 
         //Check for verify of Command , in this case the shape is deselected
-        assertEquals(null, selection.getView_element());
+        assertEquals(false, selection.contains(myRectangle.getShape()));
         System.out.println("Shape view selected must be false after Selection Command : "+selection.contains(myRectangle.getShape()));
 
 
@@ -100,7 +100,7 @@ public class SelectionCommandTest {
         selectionCommand.execute();
 
         //Check for verify of Command , in this case the shape is deselected
-        assertEquals(null, selection.getView_element());
+        assertEquals(false, selection.contains(myEllipse.getShape()));
         System.out.println("Shape view selected must be false after Selection Command : "+selection.contains(myEllipse.getShape()));
 
 
@@ -153,7 +153,7 @@ public class SelectionCommandTest {
         selectionCommand.execute();
 
         //Check for verify of Command , in this case the shape is deselected
-        assertEquals(null, selection.getView_element());
+        assertEquals(false, selection.contains(myLine.getShape()));
         System.out.println("Shape view selected must be false after Selection Command : "+selection.contains(myLine.getShape()));
 
 

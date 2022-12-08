@@ -41,7 +41,7 @@ public class MyLineTest {
         assertEquals(30, actual.getMyLine().getEndY());
         y = 1000;
         actual.setEndY(y);
-        assertEquals(715, actual.getMyLine().getEndY());
+        assertEquals(670, actual.getMyLine().getEndY());
 
     }
 

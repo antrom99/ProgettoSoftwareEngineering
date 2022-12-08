@@ -31,7 +31,7 @@ public class UpdateCommandTest {
         UpdateCommand upUpper = new UpdateCommand(actual, 1000.0, 3000.0);
         upUpper.execute();
         assertEquals(773.0, actual.getMyRectangle().getWidth());
-        assertEquals(715.0, actual.getMyRectangle().getHeight());
+        assertEquals(670.0, actual.getMyRectangle().getHeight());
          
     }
 
@@ -56,7 +56,7 @@ public class UpdateCommandTest {
         UpdateCommand upUpper = new UpdateCommand(actual, 1000.0, 3000.0);
         upUpper.execute();
         assertEquals(773.0/2, actual.getMyEllipse().getRadiusX());
-        assertEquals(715.0/2, actual.getMyEllipse().getRadiusY());
+        assertEquals(670.0/2, actual.getMyEllipse().getRadiusY());
          
     }
 
@@ -82,7 +82,7 @@ public class UpdateCommandTest {
         UpdateCommand upUpper = new UpdateCommand(actual, 1000.0, 3000.0);
         upUpper.execute();
         assertEquals(773.0, actual.getMyLine().getEndX());
-        assertEquals(715.0, actual.getMyLine().getEndY());
+        assertEquals(670.0, actual.getMyLine().getEndY());
 
          
     }

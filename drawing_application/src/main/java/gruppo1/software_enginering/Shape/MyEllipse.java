@@ -238,17 +238,7 @@ public class MyEllipse implements MyShape {
         return rect;
     }
 
-    @Override
-    public Point2D startPoint() {
-        
-        return new Point2D(pressedPoint_x-this.myEllipse.getRadiusX(), pressedPoint_y-this.myEllipse.getRadiusY());
-    }
-
-    @Override
-    public void ResizeShape(double dragx, double dragy) {
-        
-        
-    }
+   
 
     
 
