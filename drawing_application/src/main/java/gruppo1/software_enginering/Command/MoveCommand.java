@@ -36,10 +36,10 @@ public class MoveCommand implements Command{
                 release_x = 773-view.getX()-view.getWidth();
             if(view.getX()+release_x<0)
                 release_x = -view.getX();
-            if(view.getY()+view.getHeight()+release_y>715)
-                release_y = 715-view.getY()-view.getHeight();
-            if(view.getY()+release_y<26)
-                release_y = -view.getY()+26;
+            if(view.getY()+view.getHeight()+release_y>670)
+                release_y = 670-view.getY()-view.getHeight();
+            if(view.getY()+release_y<0)
+                release_y = -view.getY();
             }
 
             

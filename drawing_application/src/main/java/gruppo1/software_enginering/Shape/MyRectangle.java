@@ -101,8 +101,8 @@ public class MyRectangle implements MyShape  {
     public void setHeight(double dragPoint_y){
         if(dragPoint_y<0) 
             dragPoint_y = 0;
-        if(dragPoint_y>715)
-            dragPoint_y=715;
+        if(dragPoint_y>670)
+            dragPoint_y=670;
 
         double offset_y = dragPoint_y-this.getPressedPoint_y();
         if(offset_y>0)

@@ -90,8 +90,8 @@ public class MyEllipse implements MyShape {
     public void setRadiusY(double dragPoint_y){
         if(dragPoint_y<0) 
             dragPoint_y = 0;
-        if(dragPoint_y>715)
-            dragPoint_y=715;
+        if(dragPoint_y>670)
+            dragPoint_y=670;
         double radius_y = (dragPoint_y-this.getPressedPoint_y())/2;
 
         this.myEllipse.setCenterY(this.getPressedPoint_y()+radius_y);

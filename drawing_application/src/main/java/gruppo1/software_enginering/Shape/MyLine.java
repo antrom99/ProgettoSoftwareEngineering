@@ -70,8 +70,8 @@ public class MyLine implements MyShape{
     public void setEndY(double end_y){
         if(end_y<0)
             end_y = 0;
-        if(end_y>715)
-            end_y=715;
+        if(end_y>670)
+            end_y=670;
         this.myLine.setEndY(end_y);
     }
 
