@@ -22,6 +22,9 @@ public class DeleteCommandTest {
     @Test
     public void DeleteRectangleTest(){
 
+        System.out.println("\n--------  TEST CASE 1  --------\n");
+
+
         /*I create instance of MyRectangle from an instance of ShapeFactory
           by performing a cast to make the types compatible*/
         ShapeFactory rectangle = new ShapeFactory("Rectangle[x=150.0, y=84.0, width=256.0, height=109.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]");
@@ -41,7 +44,7 @@ public class DeleteCommandTest {
         //Check "selection view" of current shape 
         selection.add(drawingSurface.getChildren().get(0));
         assertEquals(true, selection.contains(myRectangle.getShape()));
-        System.out.println("Control of select shape : "+selection.contains(selection.getShape_element()));
+        System.out.println("Control of select shape : "+selection.contains(myRectangle.getShape()));
 
 
         // Delete Command for deleting the currente shape
@@ -49,9 +52,9 @@ public class DeleteCommandTest {
         delete.execute();
 
 
-        //Check disable "selection view" after Copy Command , deselection --> getView_element() return null because doesn't have any shapes
-        assertEquals(null, selection.getView_element());
-        System.out.println("Control of null/disable Selection after Copy Command : "+selection.getView_element());
+        //Check disable "selection view" after Delete Command , deselection --> getView_element() return false because doesn't have any shapes
+        assertEquals(false, selection.contains(myRectangle.getShape()));
+        System.out.println("Control of view Selection after Delete Command : "+selection.contains(myRectangle.getShape()));
 
 
         // Check of Nodes number is == 0 
@@ -65,6 +68,9 @@ public class DeleteCommandTest {
 
     @Test
     public void DeleteEllipseTest(){
+
+        System.out.println("\n--------  TEST CASE 2  --------\n");
+
 
 
         /*I create instance of MyEllipse from an instance of ShapeFactory
@@ -85,7 +91,7 @@ public class DeleteCommandTest {
         //Check "selection view" of current shape 
         selection.add(drawingSurface.getChildren().get(0));
         assertEquals(true, selection.contains(myEllipse.getShape()));
-        System.out.println("Control of select shape : "+selection.contains(selection.getShape_element()));
+        System.out.println("Control of select shape : "+selection.contains(myEllipse.getShape()));
 
 
         // Delete Command for deleting the currente shape
@@ -93,9 +99,9 @@ public class DeleteCommandTest {
         delete.execute();
 
 
-        //Check disable "selection view" after Copy Command , deselection --> getView_element() return null because doesn't have any shapes
-        assertEquals(null, selection.getView_element());
-        System.out.println("Control of null/disable Selection after Copy Command : "+selection.getView_element());
+        //Check disable "selection view" after Delete Command , deselection --> getView_element() return false because doesn't have any shapes
+        assertEquals(false, selection.contains(myEllipse.getShape()));
+        System.out.println("Control of view Selection after Delete Command : "+selection.contains(myEllipse.getShape()));
 
       
         // Check of Nodes number is == 0 
@@ -109,6 +115,9 @@ public class DeleteCommandTest {
 
     @Test
     public void DeleteLineTest(){
+
+        System.out.println("\n--------  TEST CASE 3  --------\n");
+
 
         /*I create instance of MyLine from an instance of ShapeFactory
           by performing a cast to make the types compatible*/
@@ -129,7 +138,7 @@ public class DeleteCommandTest {
         //Check "selection view" of current shape 
         selection.add(drawingSurface.getChildren().get(0));
         assertEquals(true, selection.contains(myLine.getShape()));
-        System.out.println("Control of select shape : "+selection.contains(selection.getShape_element()));
+        System.out.println("Control of select shape : "+selection.contains(myLine.getShape()));
 
 
         // Delete Command for deleting the currente shape
@@ -137,9 +146,9 @@ public class DeleteCommandTest {
         delete.execute();
 
 
-        //Check disable "selection view" after Copy Command , deselection --> getView_element() return null because doesn't have any shapes
-        assertEquals(null, selection.getView_element());
-        System.out.println("Control of null/disable Selection after Copy Command : "+selection.getView_element());
+        //Check disable "selection view" after Delete Command , deselection --> getView_element() return false because doesn't have any shapes
+        assertEquals(false, selection.contains(myLine.getShape()));
+        System.out.println("Control of view Selection after Delete Command : "+selection.contains(myLine.getShape()));
 
       
         // Check of Nodes number is == 0 

@@ -17,6 +17,9 @@ public class CutCommandTest {
     @Test 
     public void CutRectangleTest(){
 
+      System.out.println("\n--------  TEST CASE 1  --------\n");
+
+
         /*I create instance of MyRectangle from an instance of ShapeFactory
           by performing a cast to make the types compatible*/
         ShapeFactory rectangle = new ShapeFactory("Rectangle[x=150.0, y=84.0, width=256.0, height=109.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]");
@@ -51,8 +54,8 @@ public class CutCommandTest {
 
 
         //Check disable "selection view" after Copy Command , deselection --> getView_element() return null because doesn't have any shapes
-        assertEquals(null, selection.getView_element());
-        System.out.println("Control of null/disable Selection after Copy Command : "+selection.getView_element());
+        assertEquals(false, selection.contains(myRectangle.getShape()));
+        System.out.println("Control of false view Selection after Cut Command : "+selection.contains(myRectangle.getShape()));
 
 
 
@@ -63,6 +66,9 @@ public class CutCommandTest {
 
     @Test 
     public void CutEllipseTest(){
+
+      System.out.println("\n--------  TEST CASE 2  --------\n");
+
 
         /*I create instance of MyEllipse from an instance of ShapeFactory
           by performing a cast to make the types compatible*/
@@ -99,8 +105,8 @@ public class CutCommandTest {
 
 
         //Check disable "selection view" after Copy Command , deselection --> getView_element() return null because doesn't have any shapes
-        assertEquals(null, selection.getView_element());
-        System.out.println("Control of null/disable Selection after Copy Command : "+selection.getView_element());
+        assertEquals(false, selection.contains(myEllipse.getShape()));
+        System.out.println("Control of view  after Copy Command : "+selection.contains(myEllipse.getShape()));
 
 
 
@@ -111,6 +117,9 @@ public class CutCommandTest {
 
     @Test 
     public void CutLineTest(){
+
+      System.out.println("\n--------  TEST CASE 3  --------\n");
+
 
         /*I create instance of MyLine from an instance of ShapeFactory
           by performing a cast to make the types compatible*/
@@ -129,7 +138,7 @@ public class CutCommandTest {
         //Check "selection view" of current shape 
         selection.add(drawingSurface.getChildren().get(0));        
         assertEquals(true, selection.contains(myLine.getShape()));
-        System.out.println("Control of select shape : "+selection.contains(selection.getShape_element()));
+        System.out.println("Control of select shape : "+selection.contains(myLine.getShape()));
         
         
 
@@ -147,8 +156,8 @@ public class CutCommandTest {
 
 
         //Check disable "selection view" after Copy Command , deselection --> getView_element() return null because doesn't have any shapes
-        assertEquals(null, selection.getView_element());
-        System.out.println("Control of null/disable Selection after Copy Command : "+selection.getView_element());
+        assertEquals(false, selection.contains(myLine.getShape()));
+        System.out.println("Control of view  after Copy Command : "+selection.contains(myLine.getShape()));
 
 
 

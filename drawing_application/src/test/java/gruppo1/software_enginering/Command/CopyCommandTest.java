@@ -2,7 +2,6 @@ package gruppo1.software_enginering.Command;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 import org.junit.jupiter.api.Test;
 
 import gruppo1.software_enginering.SelectionModel;
@@ -17,16 +16,18 @@ import javafx.scene.layout.Pane;
 
 public class CopyCommandTest {  
 
- 
+    
 
-  
 
     @Test
     public void CopyRectangleTest(){
+        
+                System.out.println("\n--------  TEST CASE 1  --------\n");
+
 
 
  
-                 /*I create instance of MyRectangle from an instance of ShapeFactory
+                /*I create instance of MyRectangle from an instance of ShapeFactory
                    by performing a cast to make the types compatible*/
                 ShapeFactory rectangle = new ShapeFactory("Rectangle[x=150.0, y=84.0, width=256.0, height=109.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]");
                 MyRectangle myRectangle = (MyRectangle) rectangle.getShape(); 
@@ -44,15 +45,15 @@ public class CopyCommandTest {
                 //Check "selection view" of current shape 
                 selection.add(drawingSurface.getChildren().get(0));
                 assertEquals(true, selection.contains(myRectangle.getShape()));
-                System.out.println("Control of select shape : "+selection.contains(selection.getShape_element()));
+                System.out.println("Control of view select current shape : "+selection.contains(myRectangle.getShape()));
 
                 // Copy Command for copying the current shape
                 CopyCommand copy = new CopyCommand(myRectangle.getShape(), selection, drawingSurface);
                 copy.execute(); 
                 
-                //Check disable "selection view" after Copy Command , deselection --> getView_element() return null because doesn't have any shapes
-                assertEquals(null, selection.getView_element());
-                System.out.println("Control of null/disable Selection after Copy Command : "+selection.getView_element());
+                //Check disable "selection view" after Copy Command , deselection --> getView_element() return false because doesn't have any shapes
+                assertEquals(false, selection.contains(myRectangle.getShape()));
+                System.out.println("Control of false Selection after Copy Command : "+selection.contains(myRectangle.getShape()));
 
 
 
@@ -88,6 +89,9 @@ public class CopyCommandTest {
     @Test
     public void CopyEllipseTest(){
 
+                System.out.println("\n--------  TEST CASE 2  --------\n");
+
+
                 /*I create instance of MyEllipse from an instance of ShapeFactory
                   by performing a cast to make the types compatible*/
                 ShapeFactory ellipse = new ShapeFactory("Ellipse[centerX=616.0, centerY=264.5, radiusX=94.0, radiusY=51.5, fill=0x800000ff, stroke=0x000000ff, strokeWidth=1.0]");
@@ -106,7 +110,7 @@ public class CopyCommandTest {
                 //Check "selection view" of current shape 
                 selection.add(drawingSurface.getChildren().get(0));
                 assertEquals(true, selection.contains(myEllipse.getShape()));
-                System.out.println("Control of select shape : "+selection.contains(selection.getShape_element()));
+                System.out.println("Control of view select current shape : "+selection.contains(myEllipse.getShape()));
 
 
                 // Copy Command for copying the current shape
@@ -114,9 +118,9 @@ public class CopyCommandTest {
                 copy.execute();
 
 
-                //Check disable "selection view" after Copy Command , deselection --> getView_element() return null because doesn't have any shapes
-                assertEquals(null, selection.getView_element());
-                System.out.println("Control of null/disable Selection after Copy Command : "+selection.getView_element());
+                //Check disable "selection view" after Copy Command , deselection --> getView_element() return false because doesn't have any shapes
+                assertEquals(false, selection.contains(myEllipse.getShape()));
+                System.out.println("Control of false Selection after Copy Command : "+selection.contains(myEllipse.getShape()));
 
 
 
@@ -149,6 +153,9 @@ public class CopyCommandTest {
     @Test
     public void CopyLineTest(){
 
+                System.out.println("\n--------  TEST CASE 3  --------\n");
+
+
                 /*I create instance of MyLine from an instance of ShapeFactory
                   by performing a cast to make the types compatible*/
                 ShapeFactory line = new ShapeFactory("Line[startX=441.0, startY=117.0, endX=396.0, endY=302.0, stroke=0x000000ff, strokeWidth=1.0]");
@@ -166,16 +173,16 @@ public class CopyCommandTest {
                 //Check "selection view" of current shape 
                 selection.add(drawingSurface.getChildren().get(0));
                 assertEquals(true, selection.contains(myLine.getShape()));
-                System.out.println("Control of select shape : "+selection.contains(selection.getShape_element()));
+                System.out.println("Control of view select current shape : "+selection.contains(myLine.getShape()));
 
                 // Copy Command for copying the current shape
                 CopyCommand copy = new CopyCommand(myLine.getShape(), selection, drawingSurface);
                 copy.execute();
 
 
-                //Check disable "selection view" after Copy Command , deselection --> getView_element() return null because doesn't have any shapes
-                assertEquals(null, selection.getView_element());
-                System.out.println("Control of null/disable Selection after Copy Command : "+selection.getView_element());
+                //Check disable "selection view" after Copy Command , deselection --> getView_element() return false because doesn't have any shapes
+                assertEquals(false, selection.contains(myLine.getShape()));
+                System.out.println("Control of false Selection after Copy Command : "+selection.contains(myLine.getShape()));
 
 
                 /*I take the the cloned shape and do subsequent attribute checks between those of the instantiated shape myLine and
