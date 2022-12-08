@@ -1,5 +1,7 @@
 package gruppo1.software_enginering.Shape;
 
+import javafx.geometry.Point2D;
+
 //import java.math.MathContext;
 
 //import javafx.geometry.Point2D;
@@ -71,6 +73,10 @@ public class MyRectangle implements MyShape  {
         this.myRectangle.setStrokeWidth(3);
     }
 
+    
+    /** 
+     * @param fillColor
+     */
     public void setFillColor(Color fillColor){
 
         this.myRectangle.setFill(fillColor);
@@ -78,12 +84,20 @@ public class MyRectangle implements MyShape  {
     }
 
 
+    
+    /** 
+     * @param strokeColor
+     */
     public void setStrokeColor(Color strokeColor){
         this.myRectangle.setStroke(strokeColor);
     }
 
     
 
+    
+    /** 
+     * @param dragPoint_y
+     */
     public void setHeight(double dragPoint_y){
         if(dragPoint_y<0) 
             dragPoint_y = 0;
@@ -100,6 +114,10 @@ public class MyRectangle implements MyShape  {
 
     }
 
+    
+    /** 
+     * @param dragPoint_x
+     */
     public void setWidth(double dragPoint_x){
         if(dragPoint_x<0)
             dragPoint_x=0;
@@ -114,6 +132,10 @@ public class MyRectangle implements MyShape  {
         }
     }
 
+    
+    /** 
+     * @param drawingSurface
+     */
     @Override
     public void draw(Pane drawingSurface) {
         
@@ -122,18 +144,35 @@ public class MyRectangle implements MyShape  {
         
     }
 
+    
+    /** 
+     * @return Rectangle
+     */
     public Rectangle getMyRectangle() {
         return myRectangle;
     }
 
+    
+    /** 
+     * @return double
+     */
     public double getPressedPoint_x() {
         return pressedPoint_x;
     }
 
+    
+    /** 
+     * @return double
+     */
     public double getPressedPoint_y() {
         return pressedPoint_y;
     }
 
+    
+    /** 
+     * @param dragPoint_x
+     * @param dragPoint_y
+     */
     @Override
     public void updateAttribute(double dragPoint_x, double dragPoint_y) {
         
@@ -141,6 +180,10 @@ public class MyRectangle implements MyShape  {
         this.setWidth(dragPoint_x);
         
     }
+   
+   /** 
+    * @return MyRectangle
+    */
    /*  public MyRectangle(double x, double y, double width, double height){
         this.myRectangle = new Rectangle(x, y, width, height);
         this.
@@ -167,12 +210,20 @@ public class MyRectangle implements MyShape  {
         
     }
 
+    
+    /** 
+     * @return Shape
+     */
     @Override
     public Shape getShape() {
         
         return this.getMyRectangle();
     }
 
+    
+    /** 
+     * @return Rectangle
+     */
     @Override
     public Rectangle view() {
         Rectangle rect = new Rectangle(this.myRectangle.getX()-3, this.myRectangle.getY()-3, this.myRectangle.getWidth()+6, this.myRectangle.getHeight()+6);
@@ -186,6 +237,21 @@ public class MyRectangle implements MyShape  {
         );
 
         return rect;
+        
+    }
+
+    @Override
+    public Point2D startPoint() {
+        
+        return new Point2D(pressedPoint_y, pressedPoint_x);
+    }
+
+    @Override
+    public void ResizeShape(double dragx, double dragy) {
+        
+
+        
+        updateAttribute(dragx,dragy);
         
     }
 

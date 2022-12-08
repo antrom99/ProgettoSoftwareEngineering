@@ -16,7 +16,12 @@ public class SelectionModel {
     private Circle rotateCircle = new Circle(7);
     private  Circle resizeCircle = new Circle(7);
    
-    public void add( Node node, Pane drawingSurface) {
+    
+    /** 
+     * @param node
+     * @param drawingSurface
+     */
+    public void add( Node node) {
 
         shape_element = (Shape) node;
         ShapeFactory shapeFactory = new ShapeFactory(shape_element) ;
@@ -35,9 +40,15 @@ public class SelectionModel {
         rotateCircle.translateXProperty().bind(shape_element.translateXProperty());
         resizeCircle.translateYProperty().bind(shape_element.translateYProperty());
         rotateCircle.translateYProperty().bind(shape_element.translateYProperty());
+        //view_element.translateXProperty().bind(resizeCircle.centerXProperty());
+        //view_element.translateYProperty().bind(resizeCircle.centerYProperty());
            
     }
     
+    
+    /** 
+     * @param drawingSurface
+     */
     public void addView(Pane drawingSurface){
        
         if(view_element!=null){
@@ -47,12 +58,21 @@ public class SelectionModel {
          
     }
 
+    
+    /** 
+     * @param node
+     */
     public void remove( Node node) {
         
         shape_element = null;
 
     }
 
+    
+    /** 
+     * @param selcted
+     * @param drawingSurface
+     */
     public void remove(Rectangle selcted, Pane drawingSurface){
         
         view_element=null;
@@ -60,6 +80,10 @@ public class SelectionModel {
 
     }
    
+    
+    /** 
+     * @param drawingSurface
+     */
     public void clear(Pane drawingSurface) {
 
                 if(shape_element!= null)
@@ -68,6 +92,11 @@ public class SelectionModel {
                 remove(view_element,drawingSurface);
         
     }
+
+/** 
+ * @param node
+ * @return boolean
+ */
 // fix bug
     public boolean contains( Node node) {
         
@@ -78,30 +107,58 @@ public class SelectionModel {
         
     }
 
+    
+    /** 
+     * @return Rectangle
+     */
     public Rectangle getView_element() {
         return view_element;
     }
 
+     
+     /** 
+      * @return Shape
+      */
      public Shape getShape_element() {
         return shape_element;
     }
 
+    
+    /** 
+     * @param view_element
+     */
     public void setView_element(Rectangle view_element) {
         this.view_element = view_element;
     }
 
+    
+    /** 
+     * @param shape_element
+     */
     public void setShape_element(Shape shape_element) {
         this.shape_element = shape_element;
     }
 
+    
+    /** 
+     * @return Rotate
+     */
     public Rotate getRotate() {
         return rotate;
     }
 
+    
+    /** 
+     * @return Circle
+     */
     public Circle getRotateCircle() {
         return rotateCircle;
     }
 
+    
+    /** 
+     * @return Circle
+     */
     public Circle getResizeCircle() {
         return resizeCircle;
     }

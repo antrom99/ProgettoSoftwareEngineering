@@ -1,5 +1,6 @@
 package gruppo1.software_enginering.Shape;
 
+import javafx.geometry.Point2D;
 //import javafx.geometry.Point2D;
 //import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
@@ -18,6 +19,9 @@ public class MyEllipse implements MyShape {
     private double pressedPoint_y;
 
 
+    /**
+     * @param ellipse
+     */
     public MyEllipse (Ellipse ellipse){
         this.myEllipse = ellipse;
         this.pressedPoint_x= ellipse.getCenterX();
@@ -28,6 +32,9 @@ public class MyEllipse implements MyShape {
 
     }
 
+    /**
+     * @param st
+     */
     public MyEllipse(String st){
 
         String[] split;
@@ -76,6 +83,10 @@ public class MyEllipse implements MyShape {
         this.myEllipse.setStrokeWidth(3);
     }
     
+    
+    /** 
+     * @param dragPoint_y
+     */
     public void setRadiusY(double dragPoint_y){
         if(dragPoint_y<0) 
             dragPoint_y = 0;
@@ -92,6 +103,10 @@ public class MyEllipse implements MyShape {
         }
     }
 
+    
+    /** 
+     * @param dragPoint_x
+     */
     public void setRadiusX(double dragPoint_x){
         if(dragPoint_x<0) 
             dragPoint_x = 0;
@@ -108,6 +123,10 @@ public class MyEllipse implements MyShape {
         } 
     }
 
+    
+    /** 
+     * @param fillColor
+     */
     public void setFillColor(Color fillColor){
 
         this.myEllipse.setFill(fillColor);
@@ -115,25 +134,45 @@ public class MyEllipse implements MyShape {
     }
 
 
+    
+    /** 
+     * @param strokeColor
+     */
     public void setStrokeColor(Color strokeColor){
         this.myEllipse.setStroke(strokeColor);
     }
 
 
+    
+    /** 
+     * @return Ellipse
+     */
     public Ellipse getMyEllipse() {
         return myEllipse;
     }
 
 
+    
+    /** 
+     * @return double
+     */
     public double getPressedPoint_x() {
         return pressedPoint_x;
     }
 
 
+    
+    /** 
+     * @return double
+     */
     public double getPressedPoint_y() {
         return pressedPoint_y;
     }
 
+    
+    /** 
+     * @param drawingSurface
+     */
     @Override
     public void draw(Pane drawingSurface) {
         
@@ -141,6 +180,11 @@ public class MyEllipse implements MyShape {
         
     }
 
+    
+    /** 
+     * @param dragPoint_x
+     * @param dragPoint_y
+     */
     @Override
     public void updateAttribute(double dragPoint_x, double dragPoint_y) {
         
@@ -149,6 +193,10 @@ public class MyEllipse implements MyShape {
         
     }
 
+    
+    /** 
+     * @return MyShape
+     */
     @Override
     public MyShape cloneShape() {
         double offset_x = this.myEllipse.getCenterX()+this.myEllipse.getTranslateX();
@@ -161,12 +209,20 @@ public class MyEllipse implements MyShape {
         return clone;
     }
 
+    
+    /** 
+     * @return Shape
+     */
     @Override
     public Shape getShape() {
         
         return this.getMyEllipse();
     }
 
+    
+    /** 
+     * @return Rectangle
+     */
     @Override
     public Rectangle view() {
         Rectangle rect = new Rectangle(this.myEllipse.getCenterX()-this.myEllipse.getRadiusX()-3, this.myEllipse.getCenterY()-this.myEllipse.getRadiusY()-3,this.myEllipse.getRadiusX()*2+6, this.myEllipse.getRadiusY()*2+6);
@@ -180,6 +236,18 @@ public class MyEllipse implements MyShape {
         );
 
         return rect;
+    }
+
+    @Override
+    public Point2D startPoint() {
+        
+        return new Point2D(pressedPoint_x-this.myEllipse.getRadiusX(), pressedPoint_y-this.myEllipse.getRadiusY());
+    }
+
+    @Override
+    public void ResizeShape(double dragx, double dragy) {
+        
+        
     }
 
     

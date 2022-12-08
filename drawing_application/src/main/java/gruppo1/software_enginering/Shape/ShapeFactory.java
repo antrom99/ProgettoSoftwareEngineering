@@ -36,6 +36,10 @@ public class ShapeFactory {
             this.shape=new MyEllipse(st);
     }
 
+    
+    /** 
+     * @return MyShape
+     */
     public MyShape getShape() {
         return shape;
     }

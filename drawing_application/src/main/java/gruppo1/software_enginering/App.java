@@ -13,6 +13,11 @@ public class App extends Application {
 
     
 
+    
+    /** 
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         
@@ -28,11 +33,21 @@ public class App extends Application {
     }
     
     
+    
+    /** 
+     * @param fxml
+     * @return Parent
+     * @throws IOException
+     */
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }

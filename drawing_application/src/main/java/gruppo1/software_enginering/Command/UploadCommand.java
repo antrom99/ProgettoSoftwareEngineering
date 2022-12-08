@@ -51,6 +51,7 @@ public class UploadCommand implements Command {
                     MyShape shape = shapeFactory.getShape();
                     Command command = new DrawCommand(shape, drawingSurface);
                     command.execute();
+                    System.out.println(file.getAbsolutePath());
                     
                    
                 }

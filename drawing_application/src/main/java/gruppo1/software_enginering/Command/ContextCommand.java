@@ -9,16 +9,14 @@ import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
 
 public class ContextCommand implements Command{
 
     private SelectionModel selection;
-    private MouseEvent event;
+    private Node node;
     private Pane drawingSurface;
-   // private ContextMenu contextMenu;
     private static MyShape shapeCopy;
     private ArrayList<MenuItem> list = new ArrayList<>();
     
@@ -29,27 +27,37 @@ public class ContextCommand implements Command{
 
 
 
+    
+    /** 
+     * @return MyShape
+     */
     public static MyShape getShapeCopy() {
         return shapeCopy;
     }
 
 
 
+    
+    /** 
+     * @param shapeCopy
+     */
     public static void setShapeCopy(MyShape shapeCopy) {
         ContextCommand.shapeCopy = shapeCopy;
     }
 
 
 
-    public ContextCommand(SelectionModel selection, MouseEvent event, Pane drawingSurface, ContextMenu contextMenu){
+    public ContextCommand(SelectionModel selection, Node node, double screenX, double screenY, Pane drawingSurface, ContextMenu contextMenu){
 
         this.selection=selection;
-        this.event=event;
+        this.node = node;
         this.drawingSurface=drawingSurface;
         //this.contextMenu = contextMenu;
+        
  
-        Command command = new SelectionCommand(this.selection,(Node) this.event.getTarget(), this.drawingSurface);
+        Command command = new SelectionCommand(this.selection,(Node) this.node, this.drawingSurface);
         command.execute();  
+        //selection.addView(drawingSurface);
         MenuItem menuItem1 = new MenuItem("Cut");
         MenuItem menuItem2 = new MenuItem("Copy");
         MenuItem menuItem3 = new MenuItem("Paste");
@@ -62,34 +70,34 @@ public class ContextCommand implements Command{
         
         contextMenu.getItems().clear();
             
-        if(this.event.getTarget() instanceof Shape ){
+        if(this.node instanceof Shape ){
 
             contextMenu.getItems().addAll(menuItem1,menuItem2,menuItem4);
-            contextMenu.show((Node) event.getTarget(), Side.RIGHT,5, 5);
+            contextMenu.show(this.node, Side.RIGHT,5, 5);
 
          }else{            
 
             contextMenu.getItems().addAll(menuItem3);
-            //contextMenu.show((Node) event.getTarget(), Side.RIGHT, event.getX(), event.getY()); 
-            contextMenu.show((Node) event.getTarget(), event.getScreenX(), event.getScreenY());
+            //contextMenu.show((Node) shape, Side.RIGHT, event.getX(), event.getY()); 
+            contextMenu.show(this.node, screenX, screenY);
         }
         
 
     }
 
-    public ContextCommand(){}
+   
 
 
     @Override
     public void execute(){
 
 
-
+        //State ridondanti 
         // DELETE OPERATION 
 
         this.list.get(3).setOnAction(e ->{
             
-            DeleteCommand delete= new DeleteCommand((Shape) event.getTarget(),drawingSurface,selection);
+            DeleteCommand delete= new DeleteCommand((Shape) node,drawingSurface,selection);
             delete.execute();
             
         });
@@ -101,7 +109,7 @@ public class ContextCommand implements Command{
 
             
             
-            CopyCommand copy = new CopyCommand((Shape) event.getTarget(), selection, drawingSurface);
+            CopyCommand copy = new CopyCommand((Shape) node, selection, drawingSurface);
             copy.execute();
 
         });
@@ -113,7 +121,7 @@ public class ContextCommand implements Command{
 
             
 
-            CutCommand cut = new CutCommand((Shape) event.getTarget(), selection, drawingSurface);
+            CutCommand cut = new CutCommand((Shape) node, selection, drawingSurface);
             cut.execute();
 
         });

@@ -1,6 +1,4 @@
 package gruppo1.software_enginering.Command;
-
-import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
@@ -8,18 +6,20 @@ public class MoveCommand implements Command{
 
     private Shape shape ;
     private Rectangle view;
-    private MouseEvent event;
-    private double x;
-    private double y;
+    private double end_x;
+    private double end_y;
+    private double start_x;
+    private double start_y;
   
 
     
 
-    public MoveCommand(Shape shape, Rectangle view,MouseEvent event, double x, double y) {
+    public MoveCommand(Shape shape, Rectangle view,double end_x, double end_y, double start_x, double start_y) {
         this.shape = shape;
-        this.event = event;
-        this.x = x;
-        this.y = y;
+        this.end_x=end_x;
+        this.end_y = end_y;
+        this.start_x = start_x;
+        this.start_y = start_y;
         this.view = view;
         
     }
@@ -27,8 +27,8 @@ public class MoveCommand implements Command{
     @Override
     public void execute() {
 
-        double release_x = event.getX()-x;
-        double release_y = event.getY()-y;
+        double release_x = this.end_x-this.start_x;
+        double release_y = this.end_y-this.start_y;
 
         //Check per la finestra
         if(view != null){
@@ -38,10 +38,13 @@ public class MoveCommand implements Command{
                 release_x = -view.getX();
             if(view.getY()+view.getHeight()+release_y>715)
                 release_y = 715-view.getY()-view.getHeight();
-            if(view.getY()+release_y<0)
+            if(view.getY()+release_y<26)
                 release_y = -view.getY()+26;
             }
+
+            
         if( shape!=null) {
+            
             shape.setTranslateX( release_x);
         
             shape.setTranslateY( release_y);

@@ -1,5 +1,6 @@
 package gruppo1.software_enginering.Shape;
 
+import javafx.geometry.Point2D;
 //import javafx.geometry.Point2D;
 //import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
@@ -42,10 +43,18 @@ public class MyLine implements MyShape{
         this.myLine.setStrokeWidth(3);
     }
 
+    
+    /** 
+     * @param strokeColor
+     */
     public void setStrokeColor(Color strokeColor){
         this.myLine.setStroke(strokeColor);
     }
 
+    
+    /** 
+     * @param end_x
+     */
     public void setEndX(double end_x){
         if(end_x<0)
             end_x = 0;
@@ -54,6 +63,10 @@ public class MyLine implements MyShape{
         this.myLine.setEndX(end_x);
     }
 
+    
+    /** 
+     * @param end_y
+     */
     public void setEndY(double end_y){
         if(end_y<0)
             end_y = 0;
@@ -62,6 +75,10 @@ public class MyLine implements MyShape{
         this.myLine.setEndY(end_y);
     }
 
+    
+    /** 
+     * @param drawingSurface
+     */
     @Override
     public void draw(Pane drawingSurface) {
         
@@ -69,10 +86,19 @@ public class MyLine implements MyShape{
         
     }
 
+    
+    /** 
+     * @return Line
+     */
     public Line getMyLine() {
         return myLine;
     }
 
+    
+    /** 
+     * @param dragPoint_x
+     * @param dragPoint_y
+     */
     @Override
     public void updateAttribute(double dragPoint_x, double dragPoint_y) {
         
@@ -81,6 +107,10 @@ public class MyLine implements MyShape{
         
     }
 
+    
+    /** 
+     * @return MyLine
+     */
     @Override
     public MyLine cloneShape() {
 
@@ -99,12 +129,20 @@ public class MyLine implements MyShape{
         
     }
 
+    
+    /** 
+     * @return Shape
+     */
     @Override
     public Shape getShape() {
         
         return this.getMyLine();
     }
 
+    
+    /** 
+     * @return Rectangle
+     */
     @Override
     public Rectangle view() {
         
@@ -119,6 +157,18 @@ public class MyLine implements MyShape{
         );
 
         return rect;
+    }
+
+    @Override
+    public Point2D startPoint() {
+        
+        return new Point2D(this.myLine.getStartX(), this.myLine.getStartY());
+    }
+
+    @Override
+    public void ResizeShape(double dragx, double dragy) {
+        
+        
     }
 
 

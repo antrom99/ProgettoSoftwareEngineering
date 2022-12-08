@@ -32,20 +32,19 @@ public class SelectionCommand implements Command{
         
         if (this.node instanceof Shape){
             Shape shape_selected = (Shape) node;
-            //System.out.println("Selection = " + shape_selected+selection.getView_element());
+            
             if (selection.contains(shape_selected)){
 
-                //System.out.println("\n\n\n\n\nciao deseleziono\n\n\n\n\n\n");
+                
                 selection.clear(drawingSurface);
                 
             }else{
                 selection.clear(drawingSurface);
-                selection.add(shape_selected, drawingSurface);
+                selection.add(shape_selected);
                 selection.addView(drawingSurface);
             }
 
-            //selection.addView(drawingSurface);
-            //return new SelectionCommand(selection,(Shape)node, drawingSurface);
+            
         }else{
             selection.clear(drawingSurface);
         }

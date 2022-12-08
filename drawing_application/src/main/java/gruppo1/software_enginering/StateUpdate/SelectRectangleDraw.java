@@ -24,6 +24,12 @@ public class SelectRectangleDraw implements State{
         this.fill = fill;
     }
 
+    
+    /** 
+     * @param event
+     * @param drawingSurface
+     * @return Command
+     */
     @Override
     public Command onMousePressed(MouseEvent event, Pane drawingSurface) {
         double pressedX = event.getX();
@@ -34,6 +40,11 @@ public class SelectRectangleDraw implements State{
         return new DrawCommand(rectangle, drawingSurface);
     }
 
+    
+    /** 
+     * @param event
+     * @return Command
+     */
     @Override
     public Command onMouseDrag(MouseEvent event) {
         double dragX = event.getX();
@@ -42,6 +53,11 @@ public class SelectRectangleDraw implements State{
         return new UpdateCommand(rectangle, dragX, dragY);
     }
 
+    
+    /** 
+     * @param strokeColor
+     * @return Command
+     */
     @Override
     public Command selectStrokeColor(Color strokeColor) {
         this.setStrokeColor(strokeColor);
@@ -49,48 +65,87 @@ public class SelectRectangleDraw implements State{
         return null;
     }
 
+    
+    /** 
+     * @param fill_color
+     * @return Command
+     */
     @Override
     public Command selectFillColor(Color fill_color) {
         this.setFillColor(fill_color);
         return null;
     }
 
+    
+    /** 
+     * @param fill
+     * @return Command
+     */
     @Override
     public Command selectFill(boolean fill) {
         this.setFill(fill);
         return null;
     }
 
+    
+    /** 
+     * @param strokeColor
+     */
     public void setStrokeColor(Color strokeColor) {
         this.strokeColor = strokeColor;
     }
 
+    
+    /** 
+     * @param fillColor
+     */
     public void setFillColor(Color fillColor) {
         this.fillColor = fillColor;
     }
 
+    
+    /** 
+     * @param fill
+     */
     public void setFill(boolean fill) {
         this.fill = fill;
     }
 
+    
+    /** 
+     * @param image
+     */
     @Override
     public void setImage(ImageView image) {
         image.setImage(new Image(getClass().getResourceAsStream("Image_State/rectangle.png")));
         
     }
 
+    
+    /** 
+     * @param image
+     */
     @Override
     public void setImageMODE(ImageView image) {
         // idle
         
     }
 
+    
+    /** 
+     * @param drawingSurface
+     */
     @Override
     public void resetMode(Pane drawingSurface) {
         
         
     }
 
+    
+    /** 
+     * @param event
+     * @return Command
+     */
     @Override
     public Command onMouseReleased(MouseEvent event) {
        

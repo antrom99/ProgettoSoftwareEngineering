@@ -100,6 +100,10 @@ public class PrimaryController {
 
 
    
+    
+    /** 
+     * @param event
+     */
     @FXML
     void save_function(ActionEvent event) {
         appContext.resetMode(Canvas);
@@ -111,6 +115,10 @@ public class PrimaryController {
 
         
     }
+    
+    /** 
+     * @param event
+     */
     @FXML
     void selectContourColor(ActionEvent event){
         
@@ -120,6 +128,10 @@ public class PrimaryController {
             inv.execute(command);
 
     }
+    
+    /** 
+     * @param event
+     */
     @FXML
     void selectFillColor(ActionEvent event){
 
@@ -130,6 +142,10 @@ public class PrimaryController {
         
     }
 
+    
+    /** 
+     * @param event
+     */
     @FXML
     void selectEllipse(ActionEvent event) {
 
@@ -140,6 +156,10 @@ public class PrimaryController {
         
     }
 
+    
+    /** 
+     * @param event
+     */
     @FXML
     void selectLine(ActionEvent event) {
 
@@ -154,6 +174,11 @@ public class PrimaryController {
         
     }
 
+    
+    /** 
+     * @param event
+     * @throws FileNotFoundException
+     */
     @FXML
     void selectRectangle(ActionEvent event) throws FileNotFoundException {
       
@@ -161,6 +186,10 @@ public class PrimaryController {
         appContext.setImage(currentShape);
 
     }   
+    
+    /** 
+     * @param event
+     */
     @FXML
     void selectCursor(ActionEvent event){
         label_drawing_mode.setDisable(true);
@@ -181,6 +210,10 @@ public class PrimaryController {
         
     }
 
+    
+    /** 
+     * @param event
+     */
     @FXML
     void selectDrawingMode(ActionEvent event){
         label_drawing_mode.setDisable(false);
@@ -203,6 +236,10 @@ public class PrimaryController {
     }
 
    
+    
+    /** 
+     * @param event
+     */
     @FXML
     void clickPoint(MouseEvent event) {
 
@@ -214,6 +251,10 @@ public class PrimaryController {
         
     }
 
+   
+   /** 
+    * @param event
+    */
    // }
     @FXML
     void dragOperation(MouseEvent event){
@@ -225,14 +266,27 @@ public class PrimaryController {
 
         
     
+    
+    /** 
+     * @param event
+     */
     @FXML
     void clickRelase(MouseEvent event) {
 
         appContext.onMouseReleased(event);
+        
+        Command command = appContext.onMouseReleased(event);
+        if (command !=null)
+            inv.execute(command);
+        
     }
 
  
 
+    
+    /** 
+     * @param event
+     */
     @FXML
     void click_fill_color_checkbox(ActionEvent event) {
 
@@ -251,6 +305,10 @@ public class PrimaryController {
 
     }
 
+    
+    /** 
+     * @param event
+     */
     @FXML
     void upload_function(ActionEvent event) {
         File file = FileChooser("upload");
@@ -298,10 +356,19 @@ public class PrimaryController {
     }
 
 
+    
+    /** 
+     * @param comand
+     */
     public void commandExecute(Command comand){
         inv.execute(comand);
     }
 
+    
+    /** 
+     * @param op
+     * @return File
+     */
     public File FileChooser( String op){
         if(op.equals("upload")){
             FileChooser openFile = new FileChooser();

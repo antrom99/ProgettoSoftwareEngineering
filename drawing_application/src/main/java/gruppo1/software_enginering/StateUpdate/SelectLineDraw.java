@@ -18,10 +18,20 @@ public class SelectLineDraw implements State{
         this.strokeColor = strokeColor;
     }
 
+    
+    /** 
+     * @param strokeColor
+     */
     public void setStrokeColor(Color strokeColor) {
         this.strokeColor = strokeColor;
     }
 
+    
+    /** 
+     * @param event
+     * @param drawingSurface
+     * @return Command
+     */
     @Override
     public Command onMousePressed(MouseEvent event, Pane drawingSurface) {
         double pressedX = event.getX();
@@ -32,6 +42,11 @@ public class SelectLineDraw implements State{
         return new DrawCommand(line, drawingSurface);
     }
 
+    
+    /** 
+     * @param event
+     * @return Command
+     */
     @Override
     public Command onMouseDrag(MouseEvent event) {
         double dragX = event.getX();
@@ -40,40 +55,72 @@ public class SelectLineDraw implements State{
         return new UpdateCommand(line, dragX, dragY);
     }
 
+    
+    /** 
+     * @param strokeColor
+     * @return Command
+     */
     @Override
     public Command selectStrokeColor(Color strokeColor) {
         this.setStrokeColor(strokeColor);
         return null;
     }
 
+    
+    /** 
+     * @param fill_color
+     * @return Command
+     */
     @Override
     public Command selectFillColor(Color fill_color) {
         // IDLE
         return null;
     }
 
+    
+    /** 
+     * @param fill
+     * @return Command
+     */
     @Override
     public Command selectFill(boolean fill) {
         // IDLE
         return null;
     }
 
+    
+    /** 
+     * @param image
+     */
     @Override
     public void setImage(ImageView image) {
         image.setImage(new Image(getClass().getResourceAsStream("Image_State/line.png")));
         
     }
 
+    
+    /** 
+     * @param image
+     */
     public void setImageMODE(ImageView image){
         image.setImage(new Image(getClass().getResourceAsStream("Image_State/matita.png")));
     }
 
+    
+    /** 
+     * @param drawingSurface
+     */
     @Override
     public void resetMode(Pane drawingSurface) {
         
         
     }
 
+    
+    /** 
+     * @param event
+     * @return Command
+     */
     @Override
     public Command onMouseReleased(MouseEvent event) {
         
