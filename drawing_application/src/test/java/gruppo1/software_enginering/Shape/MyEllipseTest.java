@@ -102,12 +102,6 @@ public class MyEllipseTest {
         System.out.println("New RadiusY: " +radius);
         actual.setRadiusY(radius);
         assertEquals(670.0/2, actual.getMyEllipse().getRadiusY());
-<<<<<<< HEAD
-=======
-        System.out.println("MyEllipse modified : "+actual.getShape());
-        System.out.println("[RadiusY expected: " +715.0/2 +"]");
-
->>>>>>> ce1efbd8e5b893edc5965fecb843a11ddb3ffdef
     }
 
 

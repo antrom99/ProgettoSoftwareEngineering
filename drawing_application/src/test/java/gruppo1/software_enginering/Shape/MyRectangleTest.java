@@ -57,26 +57,12 @@ public class MyRectangleTest {
         System.out.println("New Height: " +height);
         actual.setHeight(height);
         assertEquals(0, actual.myRectangle.getHeight());
-<<<<<<< HEAD
         width = 30;
         actual.setHeight(width);
         assertEquals(30, actual.myRectangle.getHeight());
         width = 1000;
         actual.setHeight(width);
         assertEquals(670, actual.myRectangle.getHeight());
-=======
-        System.out.println("MyRectangle modified : "+actual.getShape());
-        System.out.println("[Height expected: " +0.0 +"]");
-
-        System.out.println();
-
-        height = 1000;
-        System.out.println("New Height: " +height);
-        actual.setHeight(height);
-        assertEquals(670, actual.myRectangle.getHeight());
-        System.out.println("MyRectangle modified : "+actual.getShape());
-        System.out.println("[Height expected: " +670.0 +"]");
->>>>>>> ce1efbd8e5b893edc5965fecb843a11ddb3ffdef
 
     }
 

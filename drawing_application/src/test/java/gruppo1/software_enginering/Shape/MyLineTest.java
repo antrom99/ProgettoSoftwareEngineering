@@ -69,12 +69,6 @@ public class MyLineTest {
         System.out.println("New EndY : " +y);
         actual.setEndY(y);
         assertEquals(670, actual.getMyLine().getEndY());
-<<<<<<< HEAD
-=======
-        System.out.println("MyLine modified : "+actual.getShape());
-        System.out.println("[EndY  expected: " +670.0 +"]");
-
->>>>>>> ce1efbd8e5b893edc5965fecb843a11ddb3ffdef
 
     }
 
