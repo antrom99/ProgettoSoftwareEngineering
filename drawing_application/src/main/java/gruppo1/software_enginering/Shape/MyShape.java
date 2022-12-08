@@ -1,6 +1,5 @@
 package gruppo1.software_enginering.Shape;
-import javafx.geometry.Point2D;
-//import javafx.scene.canvas.GraphicsContext;
+
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;

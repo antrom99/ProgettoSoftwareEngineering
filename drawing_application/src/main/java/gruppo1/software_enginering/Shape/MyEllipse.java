@@ -1,8 +1,6 @@
 package gruppo1.software_enginering.Shape;
 
-import javafx.geometry.Point2D;
-//import javafx.geometry.Point2D;
-//import javafx.scene.canvas.GraphicsContext;
+
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;

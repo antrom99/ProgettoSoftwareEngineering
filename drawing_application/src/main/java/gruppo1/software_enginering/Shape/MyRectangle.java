@@ -1,17 +1,9 @@
 package gruppo1.software_enginering.Shape;
 
-import javafx.geometry.Point2D;
-
-//import java.math.MathContext;
-
-//import javafx.geometry.Point2D;
-//import javafx.scene.input.MouseEvent;
-//import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-//import javafx.scene.shape.Shape;
 import javafx.scene.shape.Shape;
 
 
