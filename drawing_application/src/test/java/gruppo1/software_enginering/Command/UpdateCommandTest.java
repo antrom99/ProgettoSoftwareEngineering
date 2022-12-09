@@ -101,50 +101,48 @@ public class UpdateCommandTest {
     }
 
     
-   
-        @Test
-        void testExecuteForLine() {
-    
-            System.out.println("\n--------  TEST CASE 3  --------\n");
-    
-            Line line = new Line();
-            MyLine actual = new MyLine(line);
-    
-            System.out.println("MyLine created : "+actual.getShape());
-    
-            UpdateCommand up = new UpdateCommand(actual, 5.0, 3.0);
-            System.out.println("Drag Point x : "+5.0 + "  Drag Point y :" + 3.0);
-            up.execute();
-            assertEquals(5.0, actual.getMyLine().getEndX());
-            assertEquals(3.0, actual.getMyLine().getEndY());
-            System.out.println("Update End X and End Y of MyLine: ");
-            System.out.println("MyLine modified : "+actual.getShape());
-            System.out.println("Expected :[End X : "+5.0 + "  End Y :" + 3.0+"]");
-    
-            System.out.println();
-    
-            UpdateCommand upNegative = new UpdateCommand(actual, -10.0, -3.0);
-            System.out.println("Drag Point x : "+-10.0 + "  Drag Point y :" + -3.0);
-            upNegative.execute();
-            assertEquals(0.0, actual.getMyLine().getEndX());
-            assertEquals(0.0, actual.getMyLine().getEndY());
-            System.out.println("Update End X and End Y of MyLine: ");
-            System.out.println("MyLine modified : "+actual.getShape());
-            System.out.println("Expected :[End X : "+0.0 + "  End Y :" + 0.0+"]");
-    
-            System.out.println();
-             
-    
-            UpdateCommand upUpper = new UpdateCommand(actual, 1000.0, 3000.0);
-            System.out.println("Drag Point x : "+1000.0 + "  Drag Point y :" + 3000.0);
-            upUpper.execute();
-            assertEquals(773.0, actual.getMyLine().getEndX());
-            assertEquals(670.0, actual.getMyLine().getEndY());
-            System.out.println("Update End X and End Y of MyLine: ");
-            System.out.println("MyLine modified : "+actual.getShape());
-            System.out.println("Expected :[End X : "+773.0 + "  End Y :" + 670.0+"]");
-    
-             
-        }
+    @Test
+    void testExecuteForLine() {
 
+        System.out.println("\n--------  TEST CASE 3  --------\n");
+
+        Line line = new Line();
+        MyLine actual = new MyLine(line);
+
+        System.out.println("MyLine created : "+actual.getShape());
+
+        UpdateCommand up = new UpdateCommand(actual, 5.0, 3.0);
+        System.out.println("Drag Point x : "+5.0 + "  Drag Point y :" + 3.0);
+        up.execute();
+        assertEquals(5.0, actual.getMyLine().getEndX());
+        assertEquals(3.0, actual.getMyLine().getEndY());
+        System.out.println("Update End X and End Y of MyLine: ");
+        System.out.println("MyLine modified : "+actual.getShape());
+        System.out.println("Expected :[End X : "+5.0 + "  End Y :" + 3.0+"]");
+
+        System.out.println();
+
+        UpdateCommand upNegative = new UpdateCommand(actual, -10.0, -3.0);
+        System.out.println("Drag Point x : "+-10.0 + "  Drag Point y :" + -3.0);
+        upNegative.execute();
+        assertEquals(0.0, actual.getMyLine().getEndX());
+        assertEquals(0.0, actual.getMyLine().getEndY());
+        System.out.println("Update End X and End Y of MyLine: ");
+        System.out.println("MyLine modified : "+actual.getShape());
+        System.out.println("Expected :[End X : "+0.0 + "  End Y :" + 0.0+"]");
+
+        System.out.println();
+         
+
+        UpdateCommand upUpper = new UpdateCommand(actual, 1000.0, 3000.0);
+        System.out.println("Drag Point x : "+1000.0 + "  Drag Point y :" + 3000.0);
+        upUpper.execute();
+        assertEquals(773.0, actual.getMyLine().getEndX());
+        assertEquals(670.0, actual.getMyLine().getEndY());
+        System.out.println("Update End X and End Y of MyLine: ");
+        System.out.println("MyLine modified : "+actual.getShape());
+        System.out.println("Expected :[End X : "+773.0 + "  End Y :" + 670.0+"]");
+
+         
     }
+}
