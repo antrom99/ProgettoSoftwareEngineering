@@ -1,12 +1,15 @@
 package gruppo1.software_enginering.Shape;
 
 
+import java.util.InputMismatchException;
+
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+
 
 
 public class MyEllipse implements MyShape {
@@ -35,36 +38,45 @@ public class MyEllipse implements MyShape {
      */
     public MyEllipse(String st){
 
-        String[] split;
+        if(this.lineIsEllipse(st)){
 
-        st=st.replace("Ellipse", "");
-                    st=st.replace("centerX", "");
-                    st=st.replace("centerY", "");
-                    st=st.replace("radiusX", "");
-                    st=st.replace("radiusY", "");
-                    st=st.replace("fill", "");
-                    st=st.replace("width", "");
+            String[] split;
+            st = st.replace("[","");
+            st=st.replace("]", "");
+            st=st.replace("=", "");
+            st=st.replace(" ", "");
+            st=st.replace("strokeWidth", "");        
+            st=st.replace("stroke", "");
+            st=st.replace("Ellipse", "");
+            st=st.replace("centerX", "");
+            st=st.replace("centerY", "");
+            st=st.replace("radiusX", "");
+            st=st.replace("radiusY", "");
+            st=st.replace("fill", "");
+            st=st.replace("width", "");
 
 
-                    split=st.split(",");
+            split=st.split(",");
 
-                    this.myEllipse = new Ellipse(Double.parseDouble(split[0]), Double.parseDouble(split[1]),Double.parseDouble(split[2]), Double.parseDouble(split[3]));
-                    this.pressedPoint_x=Double.parseDouble(split[0]);
-                    this.pressedPoint_y= Double.parseDouble(split[1]);
+            this.myEllipse = new Ellipse(Double.parseDouble(split[0]), Double.parseDouble(split[1]),Double.parseDouble(split[2]), Double.parseDouble(split[3]));
+            this.pressedPoint_x=Double.parseDouble(split[0]);
+            this.pressedPoint_y= Double.parseDouble(split[1]);
 
-                    if(split[4].contains("null")){
+            if(split[4].contains("null")){
 
-                        this.myEllipse.setFill(null);
+                this.myEllipse.setFill(null);
 
-                    } else{
+            } else{
 
-                        this.myEllipse.setFill(Paint.valueOf(split[4]));
-                    }
+                this.myEllipse.setFill(Paint.valueOf(split[4]));
+            }
 
-                        
+                
 
-                    this.myEllipse.setStroke(Paint.valueOf(split[5]));
-                    this.myEllipse.setStrokeWidth(Double.parseDouble(split[6]));
+            this.myEllipse.setStroke(Paint.valueOf(split[5]));
+            this.myEllipse.setStrokeWidth(Double.parseDouble(split[6]));
+        }else 
+            throw new InputMismatchException();
 
 
     }
@@ -88,8 +100,8 @@ public class MyEllipse implements MyShape {
     public void setRadiusY(double dragPoint_y){
         if(dragPoint_y<0) 
             dragPoint_y = 0;
-        if(dragPoint_y>670)
-            dragPoint_y=670;
+        if(dragPoint_y>710)
+            dragPoint_y=710;
         double radius_y = (dragPoint_y-this.getPressedPoint_y())/2;
 
         this.myEllipse.setCenterY(this.getPressedPoint_y()+radius_y);
@@ -236,9 +248,139 @@ public class MyEllipse implements MyShape {
         return rect;
     }
 
-   
+
 
     
+    /** 
+     * @param lineCurrent
+     * @return boolean
+     */
+    public boolean lineIsEllipse(String lineCurrent) {
+        String [] split=lineCurrent.split(",");
+        String check;
+   
+        if(split.length == 7 && split[0].startsWith("Ellipse")){
+
+            if(split[0].startsWith("Ellipse[centerX=")){
+            check = split[0].replace("Ellipse[centerX=", "");
+
+            try {
+                Double.parseDouble(check);
+            } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[0] ELLIPSE");
+                return false;
+            }
+
+            }else{
+            return false;
+            }
+
+            if(split[1].startsWith(" centerY=")){
+            check = split[1].replace(" centerY=", "");
+
+            try {
+                Double.parseDouble(check);
+            } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[1] ELLIPSE");
+                return false;
+            }
+
+            }else{
+            return false;
+            }
+
+
+            if(split[2].startsWith(" radiusX=")){
+            check = split[2].replace(" radiusX=", "");
+
+            try {
+                Double.parseDouble(check);
+            } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[2] ELLIPSE");
+                return false;
+            }
+
+            }else{
+            return false;
+            }
+
+
+            if(split[3].startsWith(" radiusY=")){
+            check = split[3].replace(" radiusY=", "");
+
+            try {
+                Double.parseDouble(check);
+            } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[3] ELLIPSE");
+                return false;
+            }
+
+            }else{
+            return false;
+            }
+
+
+
+            if(split[4].startsWith(" fill=")){
+            check = split[4].replace(" fill=", "");
+
+            try {
+                if(!(split[4].contains("null")))
+                Paint.valueOf(check);
+            } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[4] ELLIPSE");
+                return false;
+            }
+
+            }else{
+            return false;
+            }
+
+
+            if(split[5].startsWith(" stroke=")){
+            check = split[5].replace(" stroke=", "");
+
+            try {
+                Paint.valueOf(check);
+            } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[5] ELLIPSE");
+                return false;
+            }
+
+            }else{
+            return false;
+            }
+
+
+
+            if(split[6].startsWith(" strokeWidth=") && split[6].endsWith("]")){
+            split[6] = split[6].replace(" strokeWidth=", "");
+            check = split[6].replace("]", "");
+
+            try {
+                Double.parseDouble(check);
+            } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[6] ELLIPSe");
+                return false;
+            }
+
+            }else{
+            return false;
+            }
+
+
+            //check superati
+
+            return true;
+
+
+            
+
+        }
+
+        //ALTRI CASI
+        return false;
+  }
 
    
 }

@@ -20,19 +20,14 @@ public class ShapeFactory {
             
 
     }
-    public ShapeFactory(String nShape){
+    public ShapeFactory(String st){
 
-        String st=nShape.replace("[","");
-        st=st.replace("]", "");
-        st=st.replace("=", "");
-        st=st.replace(" ", "");
-        st=st.replace("strokeWidth", "");        
-        st=st.replace("stroke", "");
+       
         if (st.contains("Line"))
             this.shape=new MyLine(st);
-        if (st.contains("Rectangle"))
+        else if (st.contains("Rectangle"))
             this.shape=new MyRectangle(st);
-        if(st.contains("Ellipse"))
+        else if(st.contains("Ellipse"))
             this.shape=new MyEllipse(st);
     }
 

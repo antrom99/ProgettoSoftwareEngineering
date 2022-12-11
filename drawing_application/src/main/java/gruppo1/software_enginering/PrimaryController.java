@@ -13,6 +13,7 @@ import gruppo1.software_enginering.Command.Command;
 import gruppo1.software_enginering.Command.Invoker;
 import gruppo1.software_enginering.Command.SaveCommand;
 import gruppo1.software_enginering.Command.UploadCommand;
+import gruppo1.software_enginering.Shape.MyEllipse;
 import gruppo1.software_enginering.State_Improve.ToolContext;
 import gruppo1.software_enginering.State_Improve.ToolEdit;
 import gruppo1.software_enginering.State_Improve.ToolEllipseDraw;
@@ -127,11 +128,7 @@ public class PrimaryController {
     void selectContourColor(ActionEvent event){
 
         ToolContex.setStrokeColor(ColorPicker_Contour.getValue());
-        
-        /*Command command = appContext.selectStrokeColor(ColorPicker_Contour.getValue());
-       
-        if (command !=null)
-            inv.execute(command);*/
+    
 
     }
     
@@ -143,10 +140,6 @@ public class PrimaryController {
 
         ToolContex.setFillColor(ColorPicker_Fill.getValue());
 
-        /*Command command =appContext.selectFillColor(ColorPicker_Fill.getValue());
-        
-        if (command !=null)
-            inv.execute(command);*/
         
     }
 
@@ -157,8 +150,7 @@ public class PrimaryController {
     @FXML
     void selectEllipse(ActionEvent event) {
 
-        /*appContext.changeState(new SelectEllipseDraw(ColorPicker_Contour.getValue(), ColorPicker_Fill.getValue(), disable_fill_color.isSelected()));
-        appContext.setImage(currentShape);*/
+
 
         ToolContex.setCurrentTool(new ToolEllipseDraw(ColorPicker_Contour.getValue(), ColorPicker_Fill.getValue(), disable_fill_color.isSelected(), currentShape));
 
@@ -175,8 +167,7 @@ public class PrimaryController {
 
 
         
-        /*appContext.changeState(new SelectLineDraw(ColorPicker_Contour.getValue()));
-        appContext.setImage(currentShape);*/
+        
         ToolContex.setCurrentTool(new ToolLineDraw(ColorPicker_Contour.getValue(), currentShape, currentMode));
         disable_fill_color.setSelected(false);
         
@@ -189,16 +180,14 @@ public class PrimaryController {
     
     /** 
      * @param event
-     * @throws FileNotFoundException
+     * 
      */
     @FXML
-    void selectRectangle(ActionEvent event) throws FileNotFoundException {
+    void selectRectangle(ActionEvent event) {
 
         ToolContex.setCurrentTool(new ToolRectangleDraw(ColorPicker_Contour.getValue(), ColorPicker_Fill.getValue(), disable_fill_color.isSelected(), currentShape));
       
-       /*appContext.changeState(new SelectRectangleDraw(ColorPicker_Contour.getValue(), ColorPicker_Fill.getValue(), disable_fill_color.isSelected()));
-        appContext.setImage(currentShape);*/
-
+       
     }   
     
     /** 
@@ -218,9 +207,7 @@ public class PrimaryController {
         ToolContex.getCurrentTool().resetState(Canvas);
 
         ToolContex.setCurrentTool(new ToolEdit(inv,Canvas,ToolContex, currentMode));
-        //appContext.resetMode(Canvas);
-        //appContext.changeState(new Edit());
-        //appContext.setImageMODE(currentMode);*/
+        
         
         
        

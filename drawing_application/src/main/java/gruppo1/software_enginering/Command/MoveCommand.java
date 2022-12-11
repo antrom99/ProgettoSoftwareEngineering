@@ -37,7 +37,7 @@ public class MoveCommand implements Command{
             if(view.getX()+release_x<0)
                 release_x = -view.getX();
             if(view.getY()+view.getHeight()+release_y>670)
-                release_y = 670-view.getY()-view.getHeight();
+                release_y = 710-view.getY()-view.getHeight();
             if(view.getY()+release_y<0)
                 release_y = -view.getY();
             }
@@ -55,10 +55,5 @@ public class MoveCommand implements Command{
         
     }
 
-    @Override
-    public void undo() {
-        
-        
-    }
     
 }

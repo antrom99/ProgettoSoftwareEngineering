@@ -1,45 +1,69 @@
 package gruppo1.software_enginering.Shape;
 
+import java.util.InputMismatchException;
+
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
-
+/**
+ * @author: Gruppo1 (Antonio Nocerino, Antonio Romano)
+ * <p>
+ * The class MyRectangle implements the interface MyShape and implemented the abstract method.
+ * In this class is used the principles of composition over inheritance it is 
+ * the principle that classes should achieve polymorphic behavior and code reuse by their composition.
+ * <p><!-- -->
+ */
 public class MyRectangle implements MyShape  {
     Rectangle myRectangle;
     private double pressedPoint_x;
     private double pressedPoint_y;
 
     public MyRectangle(String st){
-        String split[];
-        st=st.replace("Rectangle", " ");
-        st=st.replaceFirst("x", "");
-        st=st.replace("y", "");
-        st=st.replace("width", "");
-        st=st.replace("height", "");
-        st=st.replace("fill", "");
+
+        System.out.println(this.lineIsRectangle(st));
+        if (this.lineIsRectangle(st)){
+            String split[];
+            st = st.replace("[","");
+            st=st.replace("]", "");
+            st=st.replace("=", "");
+            st=st.replace(" ", "");
+            st=st.replace("strokeWidth", "");        
+            st=st.replace("stroke", "");
+            st=st.replace("Rectangle", " ");
+            st=st.replaceFirst("x", "");
+            st=st.replace("y", "");
+            st=st.replace("width", "");
+            st=st.replace("height", "");
+            st=st.replace("fill", "");
 
 
-        split=st.split(",");
+            split=st.split(",");
+            System.out.println(split.toString());
 
-        this.myRectangle= new Rectangle(Double.parseDouble(split[0]), Double.parseDouble(split[1]),Double.parseDouble(split[2]), Double.parseDouble(split[3]));
-        this.pressedPoint_x = Double.parseDouble(split[0]);
-        this.pressedPoint_y = Double.parseDouble(split[1]);
+            this.myRectangle= new Rectangle(Double.parseDouble(split[0]), Double.parseDouble(split[1]),Double.parseDouble(split[2]), Double.parseDouble(split[3]));
+            this.pressedPoint_x = Double.parseDouble(split[0]);
+            this.pressedPoint_y = Double.parseDouble(split[1]);
 
-        if(split[4].contains("null")){
+            if(split[4].contains("null")){
 
-            this.myRectangle.setFill(null);
+                this.myRectangle.setFill(null);
 
-        }else{
+            }else{
 
-            this.myRectangle.setFill(Paint.valueOf(split[4]));
+                this.myRectangle.setFill(Paint.valueOf(split[4]));
+            }
+
+
+            this.myRectangle.setStroke(Paint.valueOf(split[5]));
+            this.myRectangle.setStrokeWidth(Double.parseDouble(split[6]));
+        }else {
+
+            System.out.println(st);
+            throw new InputMismatchException();
         }
-
-
-        this.myRectangle.setStroke(Paint.valueOf(split[5]));
-        this.myRectangle.setStrokeWidth(Double.parseDouble(split[6]));
     }
 
     public MyRectangle(Rectangle rectangle) {
@@ -93,8 +117,8 @@ public class MyRectangle implements MyShape  {
     public void setHeight(double dragPoint_y){
         if(dragPoint_y<0) 
             dragPoint_y = 0;
-        if(dragPoint_y>670)
-            dragPoint_y=670;
+        if(dragPoint_y>710)
+            dragPoint_y=710;
 
         double offset_y = dragPoint_y-this.getPressedPoint_y();
         if(offset_y>0)
@@ -232,6 +256,130 @@ public class MyRectangle implements MyShape  {
         
     }
 
+    
+    /** 
+     * @param lineCurrent
+     * @return boolean
+     */
+    public boolean lineIsRectangle(String lineCurrent) {
+        String [] split=lineCurrent.split(",");
+        String check;
+        if(split.length == 7 && split[0].startsWith("Rectangle")){
+
+            if(split[0].startsWith("Rectangle[x=")){
+              check = split[0].replace("Rectangle[x=", "");
+  
+              try {
+                Double.parseDouble(check);
+              } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[0] RECTANGLE");
+                return false;
+              }
+  
+            }else{
+              return false;
+            }
+  
+            if(split[1].startsWith(" y=")){
+              check = split[1].replace(" y=", "");
+  
+              try {
+                Double.parseDouble(check);
+              } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[1] RECTANGLE");
+                return false;
+              }
+  
+            }else{
+              return false;
+            }
+  
+  
+            if(split[2].startsWith(" width=")){
+              check = split[2].replace(" width=", "");
+  
+              try {
+                Double.parseDouble(check);
+              } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[2] RECTANGLE");
+                return false;
+              }
+  
+            }else{
+              return false;
+            }
+  
+  
+            if(split[3].startsWith(" height=")){
+              check = split[3].replace(" height=", "");
+  
+              try {
+                Double.parseDouble(check);
+              } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[3] RECTANGLE");
+                return false;
+              }
+  
+            }else{
+              return false;
+            }
+  
+  
+  
+            if(split[4].startsWith(" fill=")){
+              check = split[4].replace(" fill=", "");
+  
+              try {
+                if(!check.contains("null"))  
+                   Paint.valueOf(check);
+              } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[4] RECTANGLE");
+                return false;
+              }
+  
+            }else{
+              return false;
+            }
+  
+  
+            if(split[5].startsWith(" stroke=")){
+              check = split[5].replace(" stroke=", "");
+  
+              try {
+                Paint.valueOf(check);
+              } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[5] RECTANGLE");
+                return false;
+              }
+  
+            }else{
+              return false;
+            }
+  
+  
+  
+            if(split[6].startsWith(" strokeWidth=") && split[6].endsWith("]")){
+              split[6] = split[6].replace(" strokeWidth=", "");
+              check = split[6].replace("]", "");
+              try {
+                Double.parseDouble(check);
+              } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[6] RECTANGLE");
+                return false;
+              }
+  
+            }else{
+              return false;
+            }
+  
+  
+            //check superati
+  
+            return true;
+  
+          }
+          return false;
+    }
   
 
 

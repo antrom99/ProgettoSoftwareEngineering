@@ -173,39 +173,4 @@ public class ContextCommand implements Command{
 
 
 
-
-
-        
-
-
-
-     
-
-
-
-        
-
-      
-        
-
-
-
-      
-        
-
-        
-        
-    
-
-    @Override
-    public void undo() {
-        
-        
-    }
-    
-
-
-
-
-
 }

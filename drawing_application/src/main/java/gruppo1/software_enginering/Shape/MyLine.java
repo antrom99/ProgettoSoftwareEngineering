@@ -1,5 +1,7 @@
 package gruppo1.software_enginering.Shape;
 
+import java.util.InputMismatchException;
+
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -18,20 +20,30 @@ public class MyLine implements MyShape{
     }
 
     public MyLine(String st){
-        String split[];
-        st=st.replace("Line", " ");
-                st=st.replace("startX", " ");
-                st=st.replace("endY", " ");
-                st=st.replace("endX", " ");
-                st=st.replace("startY", " ");
+        if (this.lineIsLine(st)){
+            String split[];
+            st = st.replace("[","");
+            st=st.replace("]", "");
+            st=st.replace("=", "");
+            st=st.replace(" ", "");
+            st=st.replace("strokeWidth", "");        
+            st=st.replace("stroke", "");
+            st=st.replace("Line", " ");
+            st=st.replace("startX", " ");
+            st=st.replace("endY", " ");
+            st=st.replace("endX", " ");
+            st=st.replace("startY", " ");
 
-                split=st.split(",");   
+            split=st.split(",");   
 
-                this.myLine = new Line(Double.parseDouble(split[0]), 
-                Double.parseDouble(split[1]),Double.parseDouble(split[2]), Double.parseDouble(split[3]));
-                
-                this.myLine.setStroke(Paint.valueOf(split[4]));
-                this.myLine.setStrokeWidth(Double.parseDouble(split[5]));
+            this.myLine = new Line(Double.parseDouble(split[0]), 
+            Double.parseDouble(split[1]),Double.parseDouble(split[2]), Double.parseDouble(split[3]));
+            
+            this.myLine.setStroke(Paint.valueOf(split[4]));
+            this.myLine.setStrokeWidth(Double.parseDouble(split[5]));
+            }else 
+                throw new InputMismatchException();
+
     }
 
     public MyLine(double start_x, double start_y, Color strokeColor) {
@@ -67,8 +79,8 @@ public class MyLine implements MyShape{
     public void setEndY(double end_y){
         if(end_y<0)
             end_y = 0;
-        if(end_y>670)
-            end_y=670;
+        if(end_y>710)
+            end_y=710;
         this.myLine.setEndY(end_y);
     }
 
@@ -154,6 +166,121 @@ public class MyLine implements MyShape{
         );
 
         return rect;
+    }
+
+    
+    
+    /** 
+     * @param lineCurrent
+     * @return boolean
+     */
+    public boolean lineIsLine(String lineCurrent) {
+        String [] split=lineCurrent.split(",");
+        String check;
+        if(split.length == 6){//siamo in LINE
+
+
+
+            if(split[0].startsWith("Line[startX=")){
+              check = split[0].replace("Line[startX=", "");
+  
+              try {
+                Double.parseDouble(check);
+              } catch (NumberFormatException e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA");
+                return false;
+              }
+  
+            }else{
+              return false;
+            }
+  
+            if(split[1].startsWith(" startY=")){
+              check = split[1].replace(" startY=", "");
+  
+              try {
+  
+                Double.parseDouble(check);
+                
+              } catch (NumberFormatException e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[1]");
+                return false;
+              }
+  
+            }else{
+              return false;
+            }
+  
+            if(split[2].startsWith(" endX=")){
+              check = split[2].replace(" endX=", "");
+  
+              try {
+                Double.parseDouble(check);
+              } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[2]");
+                return false;
+              }
+  
+            }else{
+              return false;
+            }
+  
+            if(split[3].startsWith(" endY=")){
+              check = split[3].replace(" endY=", "");
+  
+              try {
+                Double.parseDouble(check);
+              } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[3]");
+                return false;
+              }
+  
+            }else{
+              return false;
+  
+            }
+  
+            if(split[4].startsWith(" stroke=")){
+              check = split[4].replace(" stroke=", "");
+  
+              try {
+                Paint.valueOf(check);  
+              } catch (Exception e) {
+                System.out.println("ECCEZIONE DOUBLE GESITA split[4]");
+                return false;
+              }
+  
+            }else{
+              return false;
+            }
+  
+            if(split[5].startsWith(" strokeWidth=") && split[5].endsWith("]")){
+              split[5] = split[5].replace(" strokeWidth=", "");
+              check = split[5].replace("]", "");
+  
+  
+              try {
+                Double.parseDouble(check);
+              } catch (Exception e) {
+                System.out.println("return false --> split[5]");
+                return false;
+              }
+  
+            }else{
+              return false;
+            }
+  
+  
+            //tutti i check sono andati a buon fine
+  
+            return true;
+  
+  
+  
+  
+          }
+
+        return false;
     }  
 
 }
