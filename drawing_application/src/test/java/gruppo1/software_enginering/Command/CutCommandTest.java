@@ -41,7 +41,7 @@ public class CutCommandTest {
         
         
         // Cut Command for copying the current shape
-        CutCommand cut = new CutCommand(myRectangle.getShape(), selection, drawingSurface);
+        CutCommand cut = new CutCommand( selection, drawingSurface);
         cut.execute(); 
 
         //Check to verify whether the shape has been copied
@@ -92,7 +92,7 @@ public class CutCommandTest {
         
 
         // Cut Command for copying the current shape
-        CutCommand cut = new CutCommand(myEllipse.getShape(), selection, drawingSurface);
+        CutCommand cut = new CutCommand( selection, drawingSurface);
         cut.execute(); 
 
         //Check to verify whether the shape has been copied
@@ -143,7 +143,7 @@ public class CutCommandTest {
         
 
         // Cut Command for copying the current shape
-        CutCommand cut = new CutCommand(myLine.getShape(), selection, drawingSurface);
+        CutCommand cut = new CutCommand(selection, drawingSurface);
         cut.execute(); 
 
         //Check to verify whether the shape has been copied

@@ -20,18 +20,18 @@ public class MyRectangleTest {
         System.out.println("\n--------  TEST DRAW   --------\n");
 
         Pane drawingSurface = new Pane();
-        Rectangle rectangle = new Rectangle();
-        MyRectangle actual = new MyRectangle(rectangle);
+        ShapeFactory shapeFactory = new ShapeFactory( "Rectangle[x=49.0, y=258.0, width=165.0, height=56.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]");
+        MyRectangle myRectangle = (MyRectangle) shapeFactory.getShape();
 
-        System.out.println("MyRectangle created : "+actual.getShape());
+        System.out.println("MyRectangle created : "+myRectangle.getShape());
 
         System.out.println("--call function Draw: --");
-        actual.draw(drawingSurface);
-        System.out.println("Number of shapes on the drawingSurface : "+drawingSurface.getChildren().size());
+        myRectangle.draw(drawingSurface);
+        System.out.println("Number of Nodes on the drawingSurface : "+drawingSurface.getChildren().size());
 
-        boolean isDraw = drawingSurface.getChildren().contains(rectangle);
+        boolean isDraw = drawingSurface.getChildren().contains(myRectangle.getShape());
         assertEquals(true, isDraw);
-        System.out.println("The drawingSurface contains MyRectangle?: "+drawingSurface.getChildren().contains(rectangle));
+        System.out.println("The drawingSurface contains MyRectangle? "+drawingSurface.getChildren().contains(myRectangle.getShape()));
 
     }
 
@@ -39,35 +39,49 @@ public class MyRectangleTest {
     void testSetHeight() {
 
         System.out.println("\n--------  TEST SetHeight   --------\n");
+        
 
-        Rectangle rectangle = new Rectangle();
-        MyRectangle actual = new MyRectangle(rectangle);
-        System.out.println("MyRectangle created : "+actual.getShape());
+        ShapeFactory shapeFactory = new ShapeFactory( "Rectangle[x=49.0, y=258.0, width=165.0, height=56.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]");
+        MyRectangle myRectangle = (MyRectangle) shapeFactory.getShape();
+        
+        System.out.println("MyRectangle created : "+myRectangle.getShape());
 
+        //SET the Height of shape
         double height = 30;
         System.out.println("New Height: " +height);
-        actual.setHeight(height);
-        assertEquals(height, actual.myRectangle.getHeight());
-        System.out.println("MyRectangle modified : "+actual.getShape());
-        System.out.println("[Height expected: " +30.0 +"]");
+        myRectangle.setHeight(height);
 
-        System.out.println();
 
+        //Check of the correct Parameters Y e Height
+        assertEquals(30, myRectangle.getMyRectangle().getY());
+        assertEquals(228, myRectangle.getMyRectangle().getHeight());
+        System.out.println("Rectangle after set Height +30 : "+myRectangle.getMyRectangle());
+
+        
+
+        //Check with negative  Height
         height = -10;
         System.out.println("New Height: " +height);
-        actual.setHeight(height);
-        assertEquals(0, actual.myRectangle.getHeight());
-        System.out.println("MyRectangle modified : "+actual.getShape());
-        System.out.println("[Height expected: " +0.0 +"]");
+        myRectangle.setHeight(height);
 
-        System.out.println();
 
+        //Check of the correct Parameters Y e Height
+        assertEquals(0, myRectangle.getMyRectangle().getY());
+        assertEquals(258, myRectangle.getMyRectangle().getHeight());
+        System.out.println("Rectangle after set Height -10 : "+myRectangle.getMyRectangle());
+
+        
+        //Check with height greater than Pane
         height = 1000;
         System.out.println("New Height: " +height);
-        actual.setHeight(height);
-        assertEquals(670, actual.myRectangle.getHeight());
-        System.out.println("MyRectangle modified : "+actual.getShape());
-        System.out.println("[Height expected: " +670.0 +"]");
+        myRectangle.setHeight(height);
+
+
+        //Check of the correct Parameters Y e Height
+        assertEquals(0, myRectangle.getMyRectangle().getY());
+        assertEquals(452, myRectangle.getMyRectangle().getHeight());
+        System.out.println("Rectangle after set Height +1000 : "+myRectangle.getShape());
+        
 
     }
 
@@ -77,34 +91,48 @@ public class MyRectangleTest {
 
         System.out.println("\n--------  TEST SetWidth   --------\n");
 
-        Rectangle rectangle = new Rectangle();
-        MyRectangle actual = new MyRectangle(rectangle);
-        System.out.println("MyRectangle created : "+actual.getShape());
+        ShapeFactory shapeFactory = new ShapeFactory( "Rectangle[x=49.0, y=258.0, width=165.0, height=56.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]");
+        MyRectangle myRectangle = (MyRectangle) shapeFactory.getShape();
+        System.out.println("MyRectangle created : "+myRectangle.getShape());
 
+        //Set the WIDTH of shape
         double width = 30;
-        actual.setWidth(width);
         System.out.println("New Height: " +width);
-        assertEquals(width, actual.myRectangle.getWidth());
-        System.out.println("MyRectangle modified : "+actual.getShape());
-        System.out.println("[Height expected: " +30.0 +"]");
+        myRectangle.setWidth(width);
 
-        System.out.println();
 
+        //Check of the correct Parameters X e Width
+        assertEquals(30, myRectangle.getMyRectangle().getX());
+        assertEquals(19, myRectangle.getMyRectangle().getWidth());
+        System.out.println("Rectangle after set Height +30 :"+myRectangle.getShape());
+
+      
+        //Check with negative Width
         width = -10;
         System.out.println("New Height: " +width);
-        actual.setWidth(width);
-        assertEquals(0, actual.myRectangle.getWidth());
-        System.out.println("MyRectangle modified : "+actual.getShape());
-        System.out.println("[Height expected: " +0.0 +"]");
+        myRectangle.setWidth(width);
 
-        System.out.println();
 
+        //Check of the correct Parameters X e Width
+        assertEquals(0, myRectangle.getMyRectangle().getX());
+        assertEquals(49, myRectangle.getMyRectangle().getWidth());
+        System.out.println("Rectangle after set Height -10 :"+myRectangle.getShape());
+
+
+        //Check with height greater than Pane
         width = 1000;
         System.out.println("New Height: " +width);
-        actual.setWidth(width);
-        assertEquals(773, actual.myRectangle.getWidth());
-        System.out.println("MyRectangle modified : "+actual.getShape());
-        System.out.println("[Height expected: " +773.0 +"]");
+        myRectangle.setWidth(width);
+
+
+
+
+        //Check the correct Parameters X e Width
+        assertEquals(0, myRectangle.getMyRectangle().getX());
+        assertEquals(724, myRectangle.getMyRectangle().getWidth());
+        System.out.println("Rectangle after set Height +1000 :"+myRectangle.getShape());
+
+        
 
 
     }
@@ -114,20 +142,27 @@ public class MyRectangleTest {
 
         System.out.println("\n--------  TEST UpdateAttribute   --------\n");
 
-        Rectangle rectangle = new Rectangle();
-        MyRectangle actual = new MyRectangle(rectangle);
-        System.out.println("MyRectangle created : "+actual.getShape());
 
+        ShapeFactory shapeFactory = new ShapeFactory( "Rectangle[x=49.0, y=258.0, width=165.0, height=56.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]");
+        MyRectangle myRectangle = (MyRectangle) shapeFactory.getShape();
+
+
+        System.out.println("MyRectangle created : "+myRectangle.getShape());
+
+        //Update of Drag Point X e Y
         double x = 5.0, y = 7.0;
         System.out.println("Drag Point x : "+x + "  Drag Point y :" +y);
-        actual.updateAttribute(x, y);
+        myRectangle.updateAttribute(x, y);
 
-        assertEquals(y,actual.myRectangle.getHeight());
-        assertEquals(x,actual.myRectangle.getWidth()); 
+
+        //Check of Parameters X , Y, Width , Height
+        assertEquals(5, myRectangle.getMyRectangle().getX());
+        assertEquals(7, myRectangle.getMyRectangle().getY());
+        assertEquals(44, myRectangle.getMyRectangle().getWidth());
+        assertEquals(251, myRectangle.getMyRectangle().getHeight());
         
-        System.out.println("Update Width and Height of MyRectangle: ");
-        System.out.println("MyRectangle modified : "+actual.getShape());
-        System.out.println("Expected :[Width : "+x + "  Height :" + y+"]");
+        System.out.println("MyRectangle modified : "+myRectangle.getShape());
+
     }
 
     @Test
@@ -135,17 +170,21 @@ public class MyRectangleTest {
 
         System.out.println("\n--------  TEST View   --------\n");
 
-        Rectangle rectangle = new Rectangle();
-        MyRectangle expect = new MyRectangle(rectangle);
-        System.out.println("MyRectangle created : "+expect.getShape());
+       //Create a myRectangle
+        ShapeFactory shapeFactory = new ShapeFactory( "Rectangle[x=49.0, y=258.0, width=165.0, height=56.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]");
+        MyRectangle myRectangle = (MyRectangle) shapeFactory.getShape();
+        
 
-        Rectangle actual = expect.view();
-        System.out.println("View of MyRectangle created : "+actual);
+        //Create a rectangle view for shape
+        Rectangle rectangle = myRectangle.view();
+        System.out.println("MyRectangle created : "+myRectangle.getMyRectangle());
 
-        assertEquals(expect.myRectangle.getX()-3,actual.getX());
-        assertEquals(expect.myRectangle.getY()-3,actual.getY());
-        assertEquals(expect.myRectangle.getWidth()+6,actual.getWidth());
-        assertEquals(expect.myRectangle.getHeight()+6,actual.getHeight());
+        //Check for the view
+        assertEquals(myRectangle.getMyRectangle().getX()-3,rectangle.getX());
+        assertEquals(myRectangle.getMyRectangle().getY()-3,rectangle.getY());
+        assertEquals(myRectangle.getMyRectangle().getWidth()+6,rectangle.getWidth());
+        assertEquals(myRectangle.getMyRectangle().getHeight()+6,rectangle.getHeight());
+        System.out.println("Correct view Rectangle for the Shape : "+rectangle);
 
     }
 
@@ -154,20 +193,92 @@ public class MyRectangleTest {
 
         System.out.println("\n--------  TEST CloneShape   --------\n");
 
-        Rectangle rectangle = new Rectangle(1.0,5.3,7.9,5.6);
-        MyRectangle expect = new MyRectangle(rectangle);
-        System.out.println("MyRectangle created :\t\t\t"+expect.getShape());
+        ShapeFactory shapeFactory = new ShapeFactory( "Rectangle[x=49.0, y=258.0, width=165.0, height=56.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]");
+        MyRectangle myRectangle = (MyRectangle) shapeFactory.getShape();
+        System.out.println("MyRectangle created : "+myRectangle.getShape());
+        
 
-        MyRectangle actual = expect.cloneShape();
-        System.out.println("CloneShape of MyRectangle created :  "+actual.getShape());
+        //Create a clone of shape myRectangle
+        MyRectangle clone = myRectangle.cloneShape();
 
-        assertEquals(expect.myRectangle.getX(),actual.myRectangle.getX());
-        assertEquals(expect.myRectangle.getY(),actual.myRectangle.getY());
-        assertEquals(expect.myRectangle.getWidth(),actual.myRectangle.getWidth());
-        assertEquals(expect.myRectangle.getHeight(),actual.myRectangle.getHeight());
-        assertEquals(expect.myRectangle.getStroke(),actual.myRectangle.getStroke());
-        assertEquals(expect.myRectangle.getFill(),actual.myRectangle.getFill());
-        assertEquals(expect.myRectangle.getStrokeWidth(),actual.myRectangle.getStrokeWidth());
+        if(clone instanceof MyRectangle){    
+            
+            
+            assertEquals(myRectangle.getMyRectangle().getX(),clone.getMyRectangle().getX());
+            assertEquals(myRectangle.getMyRectangle().getY(),clone.getMyRectangle().getY());
+            assertEquals(myRectangle.getMyRectangle().getWidth(),clone.getMyRectangle().getWidth());
+            assertEquals(myRectangle.getMyRectangle().getHeight(),clone.getMyRectangle().getHeight());
+            assertEquals(myRectangle.getMyRectangle().getStroke(),clone.getMyRectangle().getStroke());
+            assertEquals(myRectangle.getMyRectangle().getFill(),clone.getMyRectangle().getFill());
+            assertEquals(myRectangle.getMyRectangle().getStrokeWidth(),clone.getMyRectangle().getStrokeWidth());
+
+            System.out.println("Clone is  Correct : "+clone.getShape());
+
+
+
+        }else{
+            System.out.println("Clone is not Correct !");
+        }
+
+    
 
     }
+
+
+
+
+    @Test
+    public void TestlineIsRectangle(){
+
+        System.out.println("\n--------  TEST wrongs lines  --------\n");
+
+
+        String correct1 = "Rectangle[x=49.0, y=258.0, width=165.0, height=56.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]";
+        String correct2 = "Rectangle[x=227.0, y=140.0, width=117.0, height=54.0, fill=null, stroke=0x000000ff, strokeWidth=3.0]";
+        String wrong1 = "Rect[x=49.0, y=258.0, width=165.0, height=56.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]";
+        String wrong2 = "my name is MARIO ROSSI";
+        String wrong3 ="ANTONIO[x=49.0, y=258.0, width=165.0, height=56.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]";
+        MyRectangle myRectangle =new MyRectangle(new Rectangle());
+
+
+
+        //TEST CHE CORRECT FORMAT OF LINES
+       assertEquals(true,myRectangle.lineIsRectangle(correct1));
+       System.out.println("String 1 is in the Correct Format ?  "+myRectangle.lineIsRectangle(correct1));
+       assertEquals(true,myRectangle.lineIsRectangle(correct2));
+       System.out.println("String 2 is in the Correct Format ?  "+myRectangle.lineIsRectangle(correct2));
+
+
+       //TEST THE WRONG FORMAT OF LINES
+       assertEquals(false, myRectangle.lineIsRectangle(wrong1));
+       System.out.println("String 3 is in the Correct Format ?  "+myRectangle.lineIsRectangle(wrong1));
+       assertEquals(false, myRectangle.lineIsRectangle(wrong2));
+       System.out.println("String 4 is in the Correct Format ?  "+myRectangle.lineIsRectangle(wrong2));
+       assertEquals(false,myRectangle.lineIsRectangle(wrong3));
+       System.out.println("String 5 is in the Correct Format ?  "+myRectangle.lineIsRectangle(wrong3));
+      
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
 }

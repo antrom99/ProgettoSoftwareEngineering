@@ -5,7 +5,6 @@
 package gruppo1.software_enginering;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,7 +12,7 @@ import gruppo1.software_enginering.Command.Command;
 import gruppo1.software_enginering.Command.Invoker;
 import gruppo1.software_enginering.Command.SaveCommand;
 import gruppo1.software_enginering.Command.UploadCommand;
-import gruppo1.software_enginering.Shape.MyEllipse;
+
 import gruppo1.software_enginering.State_Improve.ToolContext;
 import gruppo1.software_enginering.State_Improve.ToolEdit;
 import gruppo1.software_enginering.State_Improve.ToolEllipseDraw;
@@ -29,7 +28,6 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;

@@ -25,7 +25,6 @@ public class Invoker{
      * into the invoker's deque and launches the execute method of the command.
      * </p> <!-- -->
      * @param command command that has to be executed.
-     * @return true, if the op has been executed, false otherwise.
      * @see Command
      */
     public void execute(Command command) {

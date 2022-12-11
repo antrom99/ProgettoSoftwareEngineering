@@ -4,7 +4,12 @@ import gruppo1.software_enginering.SelectionModel;
 import gruppo1.software_enginering.Shape.MyShape;
 import gruppo1.software_enginering.Shape.ShapeFactory;
 import javafx.scene.layout.Pane;
-
+/**
+ * <p>
+ * This Class define a command of Copy for the selected shape
+ * <p><!-- -->
+ * @see Command
+ */
 
 public class CopyCommand implements Command{
 
@@ -13,7 +18,13 @@ public class CopyCommand implements Command{
     private Pane drawingSurface;
     
 
-
+    /**
+     * <p>
+     * This is  the costructor for the command of copy, it initializes the selection model and the Drawing surface
+     * <p><!-- -->
+     * @param selection
+     * @param drawingSurface
+     */
     public CopyCommand(SelectionModel selection, Pane drawingSurface){
 
 
@@ -24,6 +35,11 @@ public class CopyCommand implements Command{
     }
 
 
+    /**
+     * <p>
+     * This method perform the operation of copy, so memorize the shape selected in a static object and remove the selection.
+     * <p><!-- -->
+     */
 
     @Override
     public void execute() {
@@ -33,28 +49,11 @@ public class CopyCommand implements Command{
         ShapeFactory shapeFactory =new ShapeFactory(this.selection.getShape_element());
         MyShape shape = shapeFactory.getShape();
         
-        //try {
-            if(!shape.equals(null)){
-               MyShape clone = shape.cloneShape(); 
-               ContextCommand.setShapeCopy(clone);
-               this.selection.clear(this.drawingSurface);
-
-            }
-
-                
-        //} catch (Exception e) {}
-
-
+    
         
-       
-
-
-       
-
-        
-
-
-
+        MyShape clone = shape.cloneShape(); 
+        ContextCommand.setShapeCopy(clone);
+        this.selection.clear(this.drawingSurface);
 
         
     }

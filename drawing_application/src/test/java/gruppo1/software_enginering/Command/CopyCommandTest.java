@@ -48,7 +48,7 @@ public class CopyCommandTest {
                 System.out.println("Control of view select current shape : "+selection.contains(myRectangle.getShape()));
 
                 // Copy Command for copying the current shape
-                CopyCommand copy = new CopyCommand(myRectangle.getShape(), selection, drawingSurface);
+                CopyCommand copy = new CopyCommand( selection, drawingSurface);
                 copy.execute(); 
                 
                 //Check disable "selection view" after Copy Command , deselection --> getView_element() return false because doesn't have any shapes
@@ -114,7 +114,7 @@ public class CopyCommandTest {
 
 
                 // Copy Command for copying the current shape
-                CopyCommand copy = new CopyCommand(myEllipse.getShape(), selection, drawingSurface);
+                CopyCommand copy = new CopyCommand(selection, drawingSurface);
                 copy.execute();
 
 
@@ -176,7 +176,7 @@ public class CopyCommandTest {
                 System.out.println("Control of view select current shape : "+selection.contains(myLine.getShape()));
 
                 // Copy Command for copying the current shape
-                CopyCommand copy = new CopyCommand(myLine.getShape(), selection, drawingSurface);
+                CopyCommand copy = new CopyCommand(selection, drawingSurface);
                 copy.execute();
 
 

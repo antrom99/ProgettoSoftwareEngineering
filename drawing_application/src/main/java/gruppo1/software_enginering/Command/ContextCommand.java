@@ -13,6 +13,12 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
 
+/**
+ * <p>
+ * This Class manage the command for the context menu functionality
+ * <p><!-- -->
+ */
+
 public class ContextCommand implements Command{
 
     private SelectionModel selection;
@@ -26,6 +32,9 @@ public class ContextCommand implements Command{
 
 
     /** 
+     * <p>
+     * Static method to get the static object MyShape 
+     * <p><!-- -->
      * @return MyShape
      */
     public static MyShape getShapeCopy() {
@@ -36,13 +45,29 @@ public class ContextCommand implements Command{
 
     
     /** 
+     * <p>
+     * Static method to set the static object MyShape 
+     * <p><!-- -->
      * @param shapeCopy
      */
     public static void setShapeCopy(MyShape shapeCopy) {
         ContextCommand.shapeCopy = shapeCopy;
     }
 
-
+    /**
+     * 
+     * <p>
+     * The Constructor of the Context Menu, this constructor create a context menu  for the Drawing Application  if a user click a shape
+     * on Drawing Surface the application shows a context menu for a shape and provide the selection for it else if a user click on Drawing Surface 
+     * shows context menu for a Drawing Surface
+     * <p><!-- -->
+     * @param selection
+     * @param node
+     * @param screenX
+     * @param screenY
+     * @param drawingSurface
+     * @param contextMenu
+     */
 
     public ContextCommand(SelectionModel selection, Node node, double screenX, double screenY, Pane drawingSurface, ContextMenu contextMenu){
 
@@ -75,8 +100,7 @@ public class ContextCommand implements Command{
         this.list.add(menuItem5);
         this.list.add(menuItem6);
         
-        
-        //contextMenu.getItems().clear();
+
             
         if(this.node instanceof Shape ){
 
@@ -94,7 +118,10 @@ public class ContextCommand implements Command{
 
    
 
-
+    /**<p>
+     * This  method select the command that must be execute when there is the event of click on a manu items of a context menu
+     * <p><!-- -->
+     */
     @Override
     public void execute(){
 

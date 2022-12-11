@@ -10,7 +10,14 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
-
+/**
+ * @author Gruppo1 
+ * <p>
+ * The class MyEllipse implements the interface MyShape and implemented the abstract method.
+ * In this class is used the principles of composition over inheritance it is 
+ * the principle that classes should achieve polymorphic behavior and code reuse by their composition.
+ * <p><!-- -->
+ */
 
 public class MyEllipse implements MyShape {
 
@@ -21,6 +28,13 @@ public class MyEllipse implements MyShape {
 
 
     /**
+     * <p>
+     * 
+     * This is a constructor for MyEllipse with a type Ellipse (Javafx) as input parameter. 
+     * This method create an object of a class MyEllipse with Ellipse parameter in this way MyEllipse 
+     * can encapsulate the object Ellipse.
+     * 
+     * <p><!-- -->
      * @param ellipse
      */
     public MyEllipse (Ellipse ellipse){
@@ -34,6 +48,16 @@ public class MyEllipse implements MyShape {
     }
 
     /**
+     * <p>
+     * Costructor of MyEllipse
+     * 
+     * 
+     * This is the costructor of MyEllipse with  a  String st like a input parameter. 
+     * This method verify that the string st is a string that rappresent an Ellipse,
+     * if this check is passed then it discover the parameter for create an Ellipse from a string and create it 
+     * else it throws InputMismatchExeption
+     * 
+     * <p><!-- -->
      * @param st
      */
     public MyEllipse(String st){
@@ -80,6 +104,20 @@ public class MyEllipse implements MyShape {
 
 
     }
+
+    /**
+     *  <p>
+    * 
+    * This is a constructor for MyEllipse with  pressedPoint_x,  pressedPoint_y, strokeColor, fillColor, isFill as input parameter.
+    * This method create an object of a class MyRectngle with point(pressedPoint_x, pressedPoint_y) as center point of the Ellipse 
+    * with strokeColor, if isFill is true with fillColor and with strokeWidth=3.The MyRectangle create have RadiousX and RadiousY equals to 0
+    * <p><!-- -->
+     * @param pressedPoint_x
+     * @param pressedPoint_y
+     * @param strokeColor
+     * @param fillColor
+     * @param isFill
+     */
     public MyEllipse(double pressedPoint_x, double pressedPoint_y, Color strokeColor, Color fillColor, boolean isFill) {
 
         this.myEllipse = new Ellipse(pressedPoint_x, pressedPoint_y, 0, 0);
@@ -95,6 +133,10 @@ public class MyEllipse implements MyShape {
     
     
     /** 
+     * <p>
+     * Method to set the RadiousY of MyEllipse respect the y coordinate of the dragPoint. This method verify if the coordinate y of
+     * a dragPoint is a coordinate of a Drawing Surface else set it in the Drawing Surface and calculate the RadiousY for MyEllipse and set it.
+     * <p><!-- --> 
      * @param dragPoint_y
      */
     public void setRadiusY(double dragPoint_y){
@@ -115,6 +157,11 @@ public class MyEllipse implements MyShape {
 
     
     /** 
+     * <p>
+     * Method to set the RadiousX of MyRectangle respect the  x coordinate of the dragPoint. This method verify if the coordinate x of
+     * a dragPoint is a coordinate  of a Drawing Surface else set it in the Drawing Surface and calculate the RadiousX for MyRectangle and set it.
+     * <p><!-- --> 
+     * 
      * @param dragPoint_x
      */
     public void setRadiusX(double dragPoint_x){
@@ -135,6 +182,9 @@ public class MyEllipse implements MyShape {
 
     
     /** 
+     * <p>
+     * Method to set the fillColor of a MyRectangle
+     * <p><!-- --> 
      * @param fillColor
      */
     public void setFillColor(Color fillColor){
@@ -146,6 +196,9 @@ public class MyEllipse implements MyShape {
 
     
     /** 
+     * <p>
+     * Method to set the strokeColor of a MyEllipse
+     * <p><!-- --> 
      * @param strokeColor
      */
     public void setStrokeColor(Color strokeColor){
@@ -155,6 +208,9 @@ public class MyEllipse implements MyShape {
 
     
     /** 
+     * <p>
+     * Method to get the attribure myEllipse of the object 
+     * <p><!-- -->
      * @return Ellipse
      */
     public Ellipse getMyEllipse() {
@@ -164,6 +220,9 @@ public class MyEllipse implements MyShape {
 
     
     /** 
+     * <p>
+     * Method to get the attribure pressedPoint_x_ of the object  that rappresent the coordinate x of the center of myEllipse
+     * <p><!-- -->
      * @return double
      */
     public double getPressedPoint_x() {
@@ -173,6 +232,9 @@ public class MyEllipse implements MyShape {
 
     
     /** 
+     * <p>
+     * Method to get the attribure pressedPoint_y of the object  that rappresent the coordinate y of the center of myEllipse
+     * <p><!-- -->
      * @return double
      */
     public double getPressedPoint_y() {
@@ -181,6 +243,9 @@ public class MyEllipse implements MyShape {
 
     
     /** 
+     * <p>
+     * This method perform the operation of drawing of a MyEllipse on drawing surface
+     * <p><!-- -->
      * @param drawingSurface
      */
     @Override
@@ -191,7 +256,10 @@ public class MyEllipse implements MyShape {
     }
 
     
-    /** 
+    /**
+     * <p>
+     * Method for updating the arrtibute of MyEllipse respect the coordinate x,y of a drag Point
+     * <p><!-- -->  
      * @param dragPoint_x
      * @param dragPoint_y
      */
@@ -205,6 +273,10 @@ public class MyEllipse implements MyShape {
 
     
     /** 
+     * <p>
+     * Method for cloning the object MyEllipse, it create other MyEllipse that have the same parameter.
+     * <p><!-- -->
+     * 
      * @return MyShape
      */
     @Override
@@ -220,7 +292,13 @@ public class MyEllipse implements MyShape {
     }
 
     
-    /** 
+    /**
+     * 
+     * <p>
+     * 
+     * Method to get Shape that compose MyEllipse
+     * 
+     * <p><!-- --> 
      * @return Shape
      */
     @Override
@@ -231,6 +309,11 @@ public class MyEllipse implements MyShape {
 
     
     /** 
+     * <p>
+     *
+     * This method return the Rectangle that rappresented the scene of the MyEllipse
+     *  
+     * <p><!-- -->
      * @return Rectangle
      */
     @Override
@@ -252,6 +335,9 @@ public class MyEllipse implements MyShape {
 
     
     /** 
+     * <p>
+     * This method verify if a string lineCurrent rappresent a myEllipse
+     * <p><!-- -->
      * @param lineCurrent
      * @return boolean
      */
@@ -369,7 +455,7 @@ public class MyEllipse implements MyShape {
             }
 
 
-            //check superati
+            
 
             return true;
 
@@ -378,7 +464,7 @@ public class MyEllipse implements MyShape {
 
         }
 
-        //ALTRI CASI
+        
         return false;
   }
 

@@ -11,19 +11,28 @@ import gruppo1.software_enginering.Shape.MyShape;
 import gruppo1.software_enginering.Shape.ShapeFactory;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Shape;
 
 
 
 
 
+/**
+ * <p>
+ * This class define the command for uploading a drawing from a file txt
+ * <p><!-- -->
+ */
 
 public class UploadCommand implements Command {
 
     private  Pane drawingSurface;
     private File file;
-    
+    /**
+     * <p>
+     * This is the constructor of save command, so it initializes the drawing surface and the file 
+     * <p><!-- -->
+     * @param drawingSurface
+     * @param file
+     */
 
     public UploadCommand( Pane drawingSurface,File file) {
         this.drawingSurface = drawingSurface;
@@ -32,7 +41,9 @@ public class UploadCommand implements Command {
     }
 
 
-
+    /**
+     * This method perform the operation of uploading of a drawing from a file txt
+     */
     @Override
     public void execute() {
 

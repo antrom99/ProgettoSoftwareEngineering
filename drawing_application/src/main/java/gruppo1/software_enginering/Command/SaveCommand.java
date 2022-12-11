@@ -11,16 +11,34 @@ import javafx.scene.Node;
 
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
-
+/**
+ * <p>
+ * This class define the command for saving the drawing on txt file
+ * <p><!-- -->
+ */
 public class SaveCommand implements Command{
 
     private File file;
     private Pane Canvas;
 
+    /**
+     * <p>
+     * This is the constructor of save command, so it initializes the drawing surface and the file 
+     * <p><!-- -->
+     * @param file
+     * @param canvas
+     */
+
     public SaveCommand(File file, Pane canvas) {
         this.file = file;
         this.Canvas = canvas;
     }
+
+    /**
+     * <p>
+     * This method perform the operation for saving the drawing on a file txt where every shape is rappresented as a string and save the file with .txt extension
+     * <p><!-- -->
+     */
 
     @Override
     public void execute() {

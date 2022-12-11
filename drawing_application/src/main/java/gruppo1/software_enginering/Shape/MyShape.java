@@ -5,7 +5,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 
-/**
+/**@author: Gruppo 1 
  * <p>
  * Interface MyShape for the Shape in the Drawing Application,
  * this interface declare the abstract method  signature that describe

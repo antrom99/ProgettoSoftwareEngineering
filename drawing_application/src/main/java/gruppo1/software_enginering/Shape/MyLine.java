@@ -9,15 +9,49 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
+/**
+ * @author Gruppo1 
+ * <p>
+ * The class MyLine implements the interface MyShape and implemented the abstract method.
+ * In this class is used the principles of composition over inheritance it is 
+ * the principle that classes should achieve polymorphic behavior and code reuse by their composition.
+ * <p><!-- -->
+ */
+
 public class MyLine implements MyShape{
 
     private Line myLine;
+
+    /**
+     * <p>
+     * 
+     * This is a constructor for myLine with a type Line (Javafx) as input parameter. 
+     * This method create an object of a class MyLine with Line parameter in this way MyLine
+     * can encapsulate the object Line.
+     * 
+     * <p><!-- -->
+     * @param line
+     */
 
     public MyLine(Line line){
         this.myLine = line;
         this.myLine.setStroke(line.getStroke());
         this.myLine.setStrokeWidth(line.getStrokeWidth());
     }
+
+    /**
+     *  <p>
+     * Costructor of MyLine
+     * 
+     * 
+     * This is the costructor of MyLine with  a  String st like a input parameter. 
+     * This method verify that the string st is a string that rappresent a Line,
+     * if this check is passed then it discover the parameter for create a Line from a string and create it 
+     * else it throws InputMismatchExeption
+     * 
+     * <p><!-- -->
+     * @param st
+     */
 
     public MyLine(String st){
         if (this.lineIsLine(st)){
@@ -46,6 +80,18 @@ public class MyLine implements MyShape{
 
     }
 
+     /**
+     *  <p>
+     * 
+     * This is a constructor for myLine with  start_x,  start_y, strokeColor as input parameter.
+     * This method create an object of a class MyLine with point(start_x, start_y) as the start point of MyLine
+     * with strokeColor. The MyLine create have length 0.
+     * <p><!-- -->
+     * @param start_x
+     * @param start_y
+     * @param strokeColor
+     */
+
     public MyLine(double start_x, double start_y, Color strokeColor) {
         this.myLine =  new Line(start_x, start_y, start_x, start_y);
         this.myLine.setStroke(strokeColor);
@@ -54,6 +100,9 @@ public class MyLine implements MyShape{
 
     
     /** 
+     * <p>
+     * Method to set the strokeColor of a MyLine
+     * <p><!-- --> 
      * @param strokeColor
      */
     public void setStrokeColor(Color strokeColor){
@@ -62,6 +111,11 @@ public class MyLine implements MyShape{
 
     
     /** 
+     * 
+     * <p>
+     * Method to set the coordinate x for the end point of the MyLine  respect the x coordinate of the dragPoint. This method verify if the coordinate x of
+     * a dragPoint is a coordinate of a Drawing Surface else set it in the Drawing Surface and set it as the end_x coordinate.
+     * <p><!-- -->
      * @param end_x
      */
     public void setEndX(double end_x){
@@ -74,6 +128,10 @@ public class MyLine implements MyShape{
 
     
     /** 
+     * <p>
+     * Method to set the coordinate y for the end point of the MyLine  respect the y coordinate of the dragPoint. This method verify if the coordinate y of
+     * a dragPoint is a coordinate of a Drawing Surface else set it in the Drawing Surface and set it as the end_x coordinate.
+     * <p><!-- -->
      * @param end_y
      */
     public void setEndY(double end_y){
@@ -86,6 +144,9 @@ public class MyLine implements MyShape{
 
     
     /** 
+     * <p>
+     * This method perform the operation of drawing of a MyLine on drawing surface
+     * <p><!-- -->
      * @param drawingSurface
      */
     @Override
@@ -97,6 +158,9 @@ public class MyLine implements MyShape{
 
     
     /** 
+     * <p>
+     * Method to get the attribure myLine of the object 
+     * <p><!-- -->
      * @return Line
      */
     public Line getMyLine() {
@@ -105,6 +169,9 @@ public class MyLine implements MyShape{
 
     
     /** 
+     * <p>
+     * Method for updating the arrtibute of MyLine respect the coordinate x,y of a drag Point
+     * <p><!-- -->
      * @param dragPoint_x
      * @param dragPoint_y
      */
@@ -118,6 +185,10 @@ public class MyLine implements MyShape{
 
     
     /** 
+     * 
+     * <p>
+     * Method for cloning the object MyLine, it create other MyLine that have the same parameter.
+     * <p><!-- -->
      * @return MyLine
      */
     @Override
@@ -139,7 +210,12 @@ public class MyLine implements MyShape{
     }
 
     
-    /** 
+    /**
+     * <p>
+     * 
+     * Method to get Shape that compose MyLine
+     * 
+     * <p><!-- --> 
      * @return Shape
      */
     @Override
@@ -150,6 +226,11 @@ public class MyLine implements MyShape{
 
     
     /** 
+     * <p>
+     *
+     * This method return the Rectangle that rappresented the scene of the MyLine
+     *  
+     * <p><!-- -->
      * @return Rectangle
      */
     @Override
@@ -171,6 +252,10 @@ public class MyLine implements MyShape{
     
     
     /** 
+     * 
+     * <p>
+     * This method verify if a string lineCurrent rappresent a myLine
+     * <p><!-- -->
      * @param lineCurrent
      * @return boolean
      */

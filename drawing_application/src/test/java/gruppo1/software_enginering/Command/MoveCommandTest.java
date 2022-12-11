@@ -24,10 +24,10 @@ public class MoveCommandTest {
 
 
         //Good Case : (endx - startx) = offsetx of move =>  0<=view.getX+view.getWidth +offsetx<=773 =>  offsetx_expected = offsetX
-        //Good Case : (endy - starty) = offsety of move =>  0<=view.getY+view.getHeigth +offsety<=670 =>  offsety_expected = offsetY
+        //Good Case : (endy - starty) = offsety of move =>  0<=view.getY+view.getHeigth +offsety<=710 =>  offsety_expected = offsetY
         //Limit Case : (endx - startx) = offsetx of move =>  view.getX+view.getWidth +offsetx>773 773 = Max Width of Drawing Surface => offsetx_expected = 773 - view.getWidh-view.getX
         //Limit Case : (endx - startx) = offsetx of move =>  view.getX+view.getWidth +offsetx<0= Min Width of Drawing Surface => offsetx_expected = 0-view.getX
-        //Limit Case : (endy - starty) = offsety of move =>  view.getY+view.getHeigth +offsety>670 670 = Max Heigth of Drawing Surface => offsety_expected = 670 -view.getHeigth-view.getY
+        //Limit Case : (endy - starty) = offsety of move =>  view.getY+view.getHeigth +offsety>710 710 = Max Heigth of Drawing Surface => offsety_expected = 710 -view.getHeigth-view.getY
         //Limit Case : (endy - starty) = offsety of move =>  view.getY+view.getHeigth +offsety<0= Min Heigth of Drawing Surface => offsety_expected = 0-view.getY
         @Test
         public void executeMoveRectangleTest(){
@@ -43,7 +43,7 @@ public class MoveCommandTest {
             double start_y = 40;
             double limite_offset_x_sup=773-view.getWidth()-view.getX();
             double limite_offset_x_inf=-view.getX();
-            double limite_offset_y_sup = 670 - view.getHeight()-view.getY();
+            double limite_offset_y_sup = 710 - view.getHeight()-view.getY();
             double limite_offset_y_inf = -view.getY();
 
             System.out.println("Rectangle that I  would move : " + shape_to_move);
@@ -53,9 +53,9 @@ public class MoveCommandTest {
             double end_x  = 800;
 
             expected_x=773- view.getX()- view.getWidth();
-            //Limit Case : (endy - starty) = offsety of move =>  view.getY+view.getHeigth +offsety>670 670 = Max Heigth of Drawing Surface =>  670 -view.getHeigth-view.getY
+            //Limit Case : (endy - starty) = offsety of move =>  view.getY+view.getHeigth +offsety>710 710 = Max Heigth of Drawing Surface =>  710 -view.getHeigth-view.getY
             double end_y = 800;
-            expected_y=670-view.getY()- view.getHeight();
+            expected_y=710-view.getY()- view.getHeight();
             System.out.println(limite_offset_x_inf+" <= offsetx <= "+limite_offset_x_sup + " ==== "+ "traslate request: "+(end_x-start_x));
             System.out.println(limite_offset_y_inf+" <= offsety <= "+limite_offset_y_sup + " ==== "+ "traslate request: "+(end_y-start_y));
             System.out.println("----call a Move----");
@@ -74,7 +74,7 @@ public class MoveCommandTest {
             end_x = 50 ;
             expected_x = end_x-start_x;
             
-            //Good Case : (endy - starty) = offsety of move =>  0<=view.getY+view.getHeigth +offsety<=670 =>  offsety_expected = offsetY
+            //Good Case : (endy - starty) = offsety of move =>  0<=view.getY+view.getHeigth +offsety<=710 =>  offsety_expected = offsetY
              end_y = 35;
              expected_y = end_y-start_y;
              System.out.println(limite_offset_x_inf+" <= offsetx <= "+limite_offset_x_sup + "===="+ "traslate request: "+(end_x-start_x));
@@ -116,7 +116,7 @@ public class MoveCommandTest {
             double expected_y;
             double limite_offset_x_sup=773-view.getWidth()-view.getX();
             double limite_offset_x_inf=-view.getX();
-            double limite_offset_y_sup = 670 - view.getHeight()-view.getY();
+            double limite_offset_y_sup = 710 - view.getHeight()-view.getY();
             double limite_offset_y_inf = -view.getY();
 
             System.out.println("\n\n =============================TEST CASE ELLIPSE TO MOVE=========================\n\n");
@@ -128,9 +128,9 @@ public class MoveCommandTest {
             //Limit Case : (endx - startx) = offsetx of move =>  view.getX+view.getWidth +offsetx>773 773 = Max Width of Drawing Surface => offsetx_expected = 773 - view.getWidh-view.getX
             double end_x  = 800;
             expected_x=773- view.getX()- view.getWidth();
-            //Limit Case : (endy - starty) = offsety of move =>  view.getY+view.getHeigth +offsety>670 670 = Max Heigth of Drawing Surface =>  670 -view.getHeigth-view.getY
+            //Limit Case : (endy - starty) = offsety of move =>  view.getY+view.getHeigth +offsety>710 710 = Max Heigth of Drawing Surface =>  710 -view.getHeigth-view.getY
             double end_y = 800;
-            expected_y=670-view.getY()- view.getHeight();
+            expected_y=710-view.getY()- view.getHeight();
             System.out.println(limite_offset_x_inf+" <= offsetx <= "+limite_offset_x_sup + " ==== "+ "traslate request: "+(end_x-start_x));
             System.out.println(limite_offset_y_inf+" <= offsety <= "+limite_offset_y_sup + " ==== "+ "traslate request: "+(end_y-start_y));
             System.out.println("----call a Move----");
@@ -147,7 +147,7 @@ public class MoveCommandTest {
             end_x = 50 ;
             expected_x = end_x-start_x;
             
-            //Good Case : (endy - starty) = offsety of move =>  0<=view.getY+view.getHeigth +offsety<=670 =>  offsety_expected = offsetY
+            //Good Case : (endy - starty) = offsety of move =>  0<=view.getY+view.getHeigth +offsety<=710 =>  offsety_expected = offsetY
              end_y = 35;
              expected_y = end_y-start_y;
              System.out.println(limite_offset_x_inf+" <= offsetx <= "+limite_offset_x_sup + " ==== "+ "traslate request: "+(end_x-start_x));
@@ -188,7 +188,7 @@ public class MoveCommandTest {
             double expected_y;
             double limite_offset_x_sup=773-view.getWidth()-view.getX();
             double limite_offset_x_inf=-view.getX();
-            double limite_offset_y_sup = 670 - view.getHeight()-view.getY();
+            double limite_offset_y_sup = 710 - view.getHeight()-view.getY();
             double limite_offset_y_inf = -view.getY();
             System.out.println("\n\n =============================TEST CASE LINE TO MOVE=========================\n\n");
             double start_x = 30;
@@ -197,9 +197,9 @@ public class MoveCommandTest {
             //Limit Case : (endx - startx) = offsetx of move =>  view.getX+view.getWidth +offsetx>773 773 = Max Width of Drawing Surface => offsetx_expected = 773 - view.getWidh-view.getX
             double end_x  = 800;
             expected_x=773- view.getX()- view.getWidth();
-            //Limit Case : (endy - starty) = offsety of move =>  view.getY+view.getHeigth +offsety>670 670 = Max Heigth of Drawing Surface =>  670 -view.getHeigth-view.getY
+            //Limit Case : (endy - starty) = offsety of move =>  view.getY+view.getHeigth +offsety>710 710 = Max Heigth of Drawing Surface =>  710 -view.getHeigth-view.getY
             double end_y = 800;
-            expected_y=670-view.getY()- view.getHeight();
+            expected_y=710-view.getY()- view.getHeight();
             System.out.println(limite_offset_x_inf+" <= offsetx <= "+limite_offset_x_sup + " ==== "+ "traslate request: "+(end_x-start_x));
             System.out.println(limite_offset_y_inf+" <= offsety <= "+limite_offset_y_sup + " ==== "+ "traslate request: "+(end_y-start_y));
             System.out.println("----call a Move----");
@@ -216,7 +216,7 @@ public class MoveCommandTest {
             end_x = 50 ;
             expected_x = end_x-start_x;
             
-            //Good Case : (endy - starty) = offsety of move =>  0<=view.getY+view.getHeigth +offsety<=670 =>  offsety_expected = offsetY
+            //Good Case : (endy - starty) = offsety of move =>  0<=view.getY+view.getHeigth +offsety<=710 =>  offsety_expected = offsetY
              end_y = 35;
              expected_y = end_y-start_y;
              System.out.println(limite_offset_x_inf+" <= offsetx <= "+limite_offset_x_sup + " ==== "+ "traslate request: "+(end_x-start_x));

@@ -41,24 +41,15 @@ public class SelectionCommandTest {
 
 
         //Command Selection in the case the shape have already view selected
-        selection.add(myRectangle.getMyRectangle());
-        selection.addView(drawingSurface);
         SelectionCommand selectionCommand = new SelectionCommand(selection, drawingSurface.getChildren().get(0), drawingSurface);
         selectionCommand.execute();
 
-        //Check for verify of Command , in this case the shape is deselected
-        assertEquals(false, selection.contains(myRectangle.getShape()));
-        System.out.println("Shape view selected must be false after Selection Command : "+selection.contains(myRectangle.getShape()));
-
-
-        //Command Selection in the case the shape haven't again view selected
-        SelectionCommand selectionCommand2 = new SelectionCommand(selection, drawingSurface.getChildren().get(0), drawingSurface);
-        selectionCommand2.execute();
+      
 
         
         //Check for verify the view selected after a Selection Command
         assertEquals(true, selection.contains(myRectangle.getShape()));
-        System.out.println("Shape view selected must be trur after Selection Command : "+selection.contains(myRectangle.getShape()));
+        System.out.println("Shape view selected must be true after Selection Command : "+selection.contains(myRectangle.getShape()));
 
 
 
@@ -94,24 +85,13 @@ public class SelectionCommandTest {
 
 
         //Command Selection in the case the shape have already view selected
-        selection.add(myEllipse.getMyEllipse());
-        selection.addView(drawingSurface);
         SelectionCommand selectionCommand = new SelectionCommand(selection, drawingSurface.getChildren().get(0), drawingSurface);
         selectionCommand.execute();
-
-        //Check for verify of Command , in this case the shape is deselected
-        assertEquals(false, selection.contains(myEllipse.getShape()));
-        System.out.println("Shape view selected must be false after Selection Command : "+selection.contains(myEllipse.getShape()));
-
-
-        //Command Selection in the case the shape haven't again view selected
-        SelectionCommand selectionCommand2 = new SelectionCommand(selection, drawingSurface.getChildren().get(0), drawingSurface);
-        selectionCommand2.execute();
 
         
         //Check for verify the view selected after a Selection Command
         assertEquals(true, selection.contains(myEllipse.getShape()));
-        System.out.println("Shape view selected must be trur after Selection Command : "+selection.contains(myEllipse.getShape()));
+        System.out.println("Shape view selected must be true after Selection Command : "+selection.contains(myEllipse.getShape()));
 
 
 
@@ -147,24 +127,13 @@ public class SelectionCommandTest {
 
 
         //Command Selection in the case the shape have already view selected
-        selection.add(myLine.getMyLine());
-        selection.addView(drawingSurface);
         SelectionCommand selectionCommand = new SelectionCommand(selection, drawingSurface.getChildren().get(0), drawingSurface);
         selectionCommand.execute();
-
-        //Check for verify of Command , in this case the shape is deselected
-        assertEquals(false, selection.contains(myLine.getShape()));
-        System.out.println("Shape view selected must be false after Selection Command : "+selection.contains(myLine.getShape()));
-
-
-        //Command Selection in the case the shape haven't again view selected
-        SelectionCommand selectionCommand2 = new SelectionCommand(selection, drawingSurface.getChildren().get(0), drawingSurface);
-        selectionCommand2.execute();
 
         
         //Check for verify the view selected after a Selection Command
         assertEquals(true, selection.contains(myLine.getShape()));
-        System.out.println("Shape view selected must be trur after Selection Command : "+selection.contains(myLine.getShape()));
+        System.out.println("Shape view selected must be true after Selection Command : "+selection.contains(myLine.getShape()));
 
 
 

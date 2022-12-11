@@ -45,7 +45,7 @@ public class PasteCommandTest {
         System.out.println("Control of select shape for Copy Command : "+selection.contains(myRectangle.getShape()));
 
         // Copy Command for copying the current shape
-        CopyCommand copy = new CopyCommand(myRectangle.getShape(), selection, drawingSurface);
+        CopyCommand copy = new CopyCommand( selection, drawingSurface);
         copy.execute();
 
 
@@ -120,7 +120,7 @@ public class PasteCommandTest {
         System.out.println("Control of select shape for Copy Command : "+selection.contains(myEllipse.getShape()));
 
         // Copy Command for copying the current shape
-        CopyCommand copy = new CopyCommand(myEllipse.getShape(), selection, drawingSurface);
+        CopyCommand copy = new CopyCommand( selection, drawingSurface);
         copy.execute();
 
 
@@ -193,7 +193,7 @@ public class PasteCommandTest {
         System.out.println("Control of select shape for Copy Command : "+selection.contains(myLine.getShape()));
 
         // Copy Command for copying the current shape
-        CopyCommand copy = new CopyCommand(myLine.getShape(), selection, drawingSurface);
+        CopyCommand copy = new CopyCommand( selection, drawingSurface);
         copy.execute();
 
 

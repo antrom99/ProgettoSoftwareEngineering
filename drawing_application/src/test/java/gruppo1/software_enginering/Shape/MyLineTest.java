@@ -22,18 +22,20 @@ public class MyLineTest {
         System.out.println("\n--------  TEST DRAW   --------\n");
 
         Pane drawingSurface = new Pane();
-        Line line = new Line();
-        MyLine actual = new MyLine(line);
 
-        System.out.println("MyLine created : "+actual.getShape());
+
+        //Create myLine
+        MyLine myLine = new MyLine("Line[startX=441.0, startY=117.0, endX=396.0, endY=302.0, stroke=0x000000ff, strokeWidth=1.0]");
+        System.out.println("MyLine created : "+myLine.getShape());
+
 
         System.out.println("--call function Draw: --");
-        actual.draw(drawingSurface);
-        System.out.println("Number of shapes on the drawingSurface : "+drawingSurface.getChildren().size());
+        myLine.draw(drawingSurface);
+        System.out.println("Number of Nodes on the drawingSurface : "+drawingSurface.getChildren().size());
 
-        boolean isDraw = drawingSurface.getChildren().contains(line);
+        boolean isDraw = drawingSurface.getChildren().contains(myLine.getShape());
         assertEquals(true, isDraw);
-        System.out.println("The drawingSurface contains MyRectangle?: "+drawingSurface.getChildren().contains(line));
+        System.out.println("The drawingSurface contains myLine?: "+drawingSurface.getChildren().contains(myLine.getShape()));
 
     }
 
@@ -43,34 +45,46 @@ public class MyLineTest {
 
         System.out.println("\n--------  TEST SetEndY   --------\n");
 
-        Line line = new Line();
-        MyLine actual = new MyLine(line);
-        System.out.println("MyLine created : "+actual.getShape());
+        //Create myLine
+        MyLine myLine = new MyLine("Line[startX=441.0, startY=117.0, endX=396.0, endY=302.0, stroke=0x000000ff, strokeWidth=1.0]");
+        System.out.println("MyLine created : "+myLine.getShape());
 
+
+        //Set EndY
         double y = 30;
         System.out.println("New EndY : " +y);        
-        actual.setEndY(y);
-        assertEquals(y, actual.getMyLine().getEndY());
-        System.out.println("MyLine modified : "+actual.getShape());
-        System.out.println("[EndY  expected: " +y +"]");
+        myLine.setEndY(y);
+        
 
-        System.out.println();
+        //Check Parameters EndX e EndY
+        assertEquals(396, myLine.getMyLine().getEndX());
+        assertEquals(30, myLine.getMyLine().getEndY());
+        System.out.println("Line after set EndY +30 : "+myLine.getShape());
 
+     
+        //Set EndY negative
         y = -10;
         System.out.println("New EndY : " +y);
-        actual.setEndY(y);
-        assertEquals(0.0, actual.getMyLine().getEndY());
-        System.out.println("MyLine modified : "+actual.getShape());
-        System.out.println("[EndY  expected: " +0.0 +"]");
+        myLine.setEndY(y);
 
-        System.out.println();
 
+        //Check Parameters Endx e EndY
+        assertEquals(396, myLine.getMyLine().getEndX());
+        assertEquals(0, myLine.getMyLine().getEndY());
+        System.out.println("Line after set EndY -10 : "+myLine.getShape());
+
+
+        //Set EndY high level
         y = 1000;
         System.out.println("New EndY : " +y);
-        actual.setEndY(y);
-        assertEquals(670, actual.getMyLine().getEndY());
-        System.out.println("MyLine modified : "+actual.getShape());
-        System.out.println("[EndY  expected: " +670.0 +"]");
+        myLine.setEndY(y);
+
+       
+        //Check Parameters Endx e EndY
+        assertEquals(396, myLine.getMyLine().getEndX());
+        assertEquals(710, myLine.getMyLine().getEndY());
+        System.out.println("Line after set EndY +1000 : "+myLine.getShape());
+
 
 
     }
@@ -80,34 +94,47 @@ public class MyLineTest {
 
         System.out.println("\n--------  TEST SetEndX   --------\n");
 
-        Line line = new Line();
-        MyLine actual = new MyLine(line);
-        System.out.println("MyLine created : "+actual.getShape());
 
+        //Create myLine
+        MyLine myLine = new MyLine("Line[startX=441.0, startY=117.0, endX=396.0, endY=302.0, stroke=0x000000ff, strokeWidth=1.0]");
+        System.out.println("MyLine created : "+myLine.getShape());
+
+        //Set EndX
         double x = 30;
         System.out.println("New EndX : " +x);      
-        actual.setEndX(x);
-        assertEquals(x, actual.getMyLine().getEndX());
-        System.out.println("MyLine modified : "+actual.getShape());
-        System.out.println("[EndX  expected: " +x +"]");
+        myLine.setEndX(x);
 
-        System.out.println();
 
+        //Check of the correct Parameters EndX e EndY
+        assertEquals(30, myLine.getMyLine().getEndX());
+        assertEquals(302, myLine.getMyLine().getEndY());
+        System.out.println("Line after set EndX +30 :"+myLine.getShape());
+
+
+        //Set EndX negative
         x = -10;
         System.out.println("New EndX : " +x);
-        actual.setEndX(x);
-        assertEquals(0.0, actual.getMyLine().getEndX());
-        System.out.println("MyLine modified : "+actual.getShape());
-        System.out.println("[EndX  expected: " +0.0 +"]");
+        myLine.setEndX(x);
 
-        System.out.println();
 
+        //Check of the correct Parameters EndX e EndY
+        assertEquals(0, myLine.getMyLine().getEndX());
+        assertEquals(302, myLine.getMyLine().getEndY());
+        System.out.println("Line after set EndX -10 :"+myLine.getShape());
+
+
+        //Set Endx high level
         x = 1000;
         System.out.println("New EndX : " +x);
-        actual.setEndX(x);
-        assertEquals(773, actual.getMyLine().getEndX());
-        System.out.println("MyLine modified : "+actual.getShape());
-        System.out.println("[EndX  expected: " +773.0 +"]");
+        myLine.setEndX(x);
+
+
+         //Check of the correct Parameters EndX e EndY
+         assertEquals(773, myLine.getMyLine().getEndX());
+         assertEquals(302, myLine.getMyLine().getEndY());
+        System.out.println("Line after set EndX +1000 :"+myLine.getShape());
+
+      
 
     }
 
@@ -117,19 +144,26 @@ public class MyLineTest {
 
         System.out.println("\n--------  TEST UpdateAttribute   --------\n");
 
-        Line line = new Line();
-        MyLine actual = new MyLine(line);
-        System.out.println("MyLine created : "+actual.getShape());
+
+        //Create myLine
+        MyLine myLine = new MyLine("Line[startX=441.0, startY=117.0, endX=396.0, endY=302.0, stroke=0x000000ff, strokeWidth=1.0]");
+        System.out.println("MyLine created : "+myLine.getShape());
 
         double x = 5.0, y = 7.0;
         System.out.println("Drag Point x : "+x + "  Drag Point y :" +y);
-        actual.updateAttribute(x, y);
+        myLine.updateAttribute(x, y);
 
-        assertEquals(x,actual.getMyLine().getEndX());
-        assertEquals(y,actual.getMyLine().getEndY()); 
-        System.out.println("Update EndX and EndY of MyLine: ");
-        System.out.println("MyLine modified : "+actual.getShape());
-        System.out.println("Expected :[EndX : "+x + "  EndY :" + y+"]");
+
+        //Check of Parameters endX e endY
+        assertEquals(5, myLine.getMyLine().getEndX());
+        assertEquals(7, myLine.getMyLine().getEndY());
+
+
+
+
+        
+
+        System.out.println("MyLine modified : "+myLine.getShape());
     
         
     }
@@ -139,38 +173,109 @@ public class MyLineTest {
 
         System.out.println("\n--------  TEST View   --------\n");
         
-        Line line = new Line();
-        MyLine expect = new MyLine(line);
-        System.out.println("MyLine created : "+expect.getShape());
+        //Create myLine
+        MyLine myLine = new MyLine("Line[startX=441.0, startY=117.0, endX=396.0, endY=302.0, stroke=0x000000ff, strokeWidth=1.0]");
 
-        Rectangle actual = expect.view();
-        System.out.println("View of MyRectangle created : "+actual);
+
+         //Create a rectangle view for shape
+        Rectangle rectangle = myLine.view();
+        System.out.println("MyLine created : "+myLine.getShape());
+
         
-        assertEquals(Math.min(expect.getMyLine().getStartX(), expect.getMyLine().getEndX())-3, actual.getX());
-        assertEquals(Math.min(expect.getMyLine().getStartY(), expect.getMyLine().getEndY())-3, actual.getY());
-        assertEquals(Math.abs(expect.getMyLine().getStartX()-expect.getMyLine().getEndX())+6, actual.getWidth());
-        assertEquals(Math.abs(expect.getMyLine().getStartY()-expect.getMyLine().getEndY())+6, actual.getHeight());
+       
+        //Check for the View
+        assertEquals(Math.min(myLine.getMyLine().getStartX(), myLine.getMyLine().getEndX())-3, rectangle.getX());
+        assertEquals(Math.min(myLine.getMyLine().getStartY(), myLine.getMyLine().getEndY())-3, rectangle.getY());
+        assertEquals(Math.abs(myLine.getMyLine().getStartX()-myLine.getMyLine().getEndX())+6, rectangle.getWidth());
+        assertEquals(Math.abs(myLine.getMyLine().getStartY()-myLine.getMyLine().getEndY())+6, rectangle.getHeight());
+        System.out.println("Correct view Rectangle for the Shape : "+rectangle);
 
     }
 
     @Test
     void testCloneShape(){
 
+
         System.out.println("\n--------  TEST CloneShape   --------\n");
 
-        Line line = new Line();
-        MyLine expect = new MyLine(line);
-        System.out.println("MyLine created :\t\t"+expect.getShape());
+        //Create MyLine
+        MyLine myLine = new MyLine("Line[startX=441.0, startY=117.0, endX=396.0, endY=302.0, stroke=0x000000ff, strokeWidth=1.0]");
+        System.out.println("myLine created : "+myLine.getShape());
 
-        MyLine actual = expect.cloneShape();
-        System.out.println("CloneShape of MyLine created :  "+actual.getShape());
 
-        assertEquals(expect.getMyLine().getStartX(),actual.getMyLine().getStartX());
-        assertEquals(expect.getMyLine().getStartY(),actual.getMyLine().getStartY());
-        assertEquals(expect.getMyLine().getEndX(),actual.getMyLine().getEndX());
-        assertEquals(expect.getMyLine().getEndY(),actual.getMyLine().getEndY());
-        assertEquals(expect.getMyLine().getStroke(),actual.getMyLine().getStroke());
-        assertEquals(expect.getMyLine().getStrokeWidth(),actual.getMyLine().getStrokeWidth());
+        //Create a clone of shape myLine
+        MyLine clone = myLine.cloneShape();
+
+        if(clone instanceof MyLine){    
+            
+              assertEquals(myLine.getMyLine().getStartX(),clone.getMyLine().getStartX());
+              assertEquals(myLine.getMyLine().getStartY(),clone.getMyLine().getStartY());
+              assertEquals(myLine.getMyLine().getEndX(),clone.getMyLine().getEndX());
+              assertEquals(myLine.getMyLine().getEndY(),clone.getMyLine().getEndY());
+              assertEquals(myLine.getMyLine().getStroke(),clone.getMyLine().getStroke());
+              assertEquals(myLine.getMyLine().getStrokeWidth(),clone.getMyLine().getStrokeWidth());
+          
+
+            System.out.println("Clone is  Correct : "+clone.getShape());
+
+
+
+        }else{
+            System.out.println("Clone is not Correct !");
+        }
+
+      
+      
+
+    }
+
+
+
+
+    @Test
+    public void TestlineIsRectangle(){
+
+        System.out.println("\n--------  TEST wrongs lines  --------\n");
+
+
+        String correct1 = "Line[startX=279.0, startY=120.0, endX=274.0, endY=229.0, stroke=0x000000ff, strokeWidth=3.0]";
+        String correct2 = "Line[startX=441.0, startY=117.0, endX=396.0, endY=302.0, stroke=0x000000ff, strokeWidth=1.0]";
+        String wrong1 = "[x=49.0, y=258.0, width=165.0, height=56.0, fill=null, stroke=0x000000ff, strokeWidth=1.0]";
+        String wrong2 = "my name is MARIO ROSSI";
+        String wrong3 ="Line[x=49.0, y=258.0, width=165.0, height=56.0,  stroke=0x000000ff, strokeWidth=1.0]";
+        MyLine myLine =new MyLine(new Line());
+
+
+
+        //TEST CHE CORRECT FORMAT OF LINES
+       assertEquals(true,myLine.lineIsLine(correct1));
+       System.out.println("String 1 is in the Correct Format ?  "+myLine.lineIsLine(correct1));
+       assertEquals(true,myLine.lineIsLine(correct2));
+       System.out.println("String 2 is in the Correct Format ?  "+myLine.lineIsLine(correct2));
+
+
+       //TEST THE WRONG FORMAT OF LINES
+       assertEquals(false, myLine.lineIsLine(wrong1));
+       System.out.println("String 3 is in the Correct Format ?  "+myLine.lineIsLine(wrong1));
+       assertEquals(false, myLine.lineIsLine(wrong2));
+       System.out.println("String 4 is in the Correct Format ?  "+myLine.lineIsLine(wrong2));
+       assertEquals(false,myLine.lineIsLine(wrong3));
+       System.out.println("String 5 is in the Correct Format ?  "+myLine.lineIsLine(wrong3));
+      
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
 
     }
 }

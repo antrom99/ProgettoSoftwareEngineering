@@ -1,7 +1,11 @@
 package gruppo1.software_enginering.Command;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
-
+/**
+ * <p>
+ * This Class define the move command for the selected shape
+ * <p><!-- -->
+ */
 public class MoveCommand implements Command{
 
     private Shape shape ;
@@ -12,7 +16,16 @@ public class MoveCommand implements Command{
     private double start_y;
   
 
-    
+    /**<p>
+     * This is the constructor for the move operation, so it inizialize the parameter for moving
+     * <p><!-- -->
+     * @param shape
+     * @param view
+     * @param end_x
+     * @param end_y
+     * @param start_x
+     * @param start_y
+     */
 
     public MoveCommand(Shape shape, Rectangle view,double end_x, double end_y, double start_x, double start_y) {
         this.shape = shape;
@@ -23,6 +36,14 @@ public class MoveCommand implements Command{
         this.view = view;
         
     }
+
+    /**
+     * <p>
+     * This method execute the moving operation of the selected shape, first of all this method verify that the shape after operation of moving is in to 
+     * drawing surface, if this check is false it sets the parameter so that the shape is in srawing surface after the operation, after that proceed with the traslation 
+     * of a shape
+     * <p><!-- -->
+     */
 
     @Override
     public void execute() {

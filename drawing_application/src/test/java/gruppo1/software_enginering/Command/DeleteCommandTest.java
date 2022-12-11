@@ -48,7 +48,7 @@ public class DeleteCommandTest {
 
 
         // Delete Command for deleting the currente shape
-        DeleteCommand delete = new DeleteCommand(myRectangle.getShape(), drawingSurface, selection);
+        DeleteCommand delete = new DeleteCommand( drawingSurface, selection);
         delete.execute();
 
 
@@ -95,7 +95,7 @@ public class DeleteCommandTest {
 
 
         // Delete Command for deleting the currente shape
-        DeleteCommand delete = new DeleteCommand(myEllipse.getShape(), drawingSurface, selection);
+        DeleteCommand delete = new DeleteCommand( drawingSurface, selection);
         delete.execute();
 
 
@@ -142,7 +142,7 @@ public class DeleteCommandTest {
 
 
         // Delete Command for deleting the currente shape
-        DeleteCommand delete = new DeleteCommand(myLine.getShape(), drawingSurface, selection);
+        DeleteCommand delete = new DeleteCommand(drawingSurface, selection);
         delete.execute();
 
 

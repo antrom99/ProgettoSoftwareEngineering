@@ -9,7 +9,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 /**
- * @author: Gruppo1 (Antonio Nocerino, Antonio Romano)
+ * @author Gruppo1 
  * <p>
  * The class MyRectangle implements the interface MyShape and implemented the abstract method.
  * In this class is used the principles of composition over inheritance it is 
@@ -21,9 +21,26 @@ public class MyRectangle implements MyShape  {
     private double pressedPoint_x;
     private double pressedPoint_y;
 
+
+    /**
+     * <p>
+     * Costructor of MyRectangle
+     * 
+     * 
+     * This is the costructor of MyRectangle with  a  String st like a input parameter. 
+     * This method verify that the string st is a string that rappresent a Rectangle,
+     * if this check is passed then it discover the parameter for create a rectangle from a string and create it 
+     * else it throws InputMismatchExeption
+     * 
+     * <p><!-- -->
+     * @param st
+     * 
+     * 
+     */ 
+
     public MyRectangle(String st){
 
-        System.out.println(this.lineIsRectangle(st));
+        
         if (this.lineIsRectangle(st)){
             String split[];
             st = st.replace("[","");
@@ -61,10 +78,21 @@ public class MyRectangle implements MyShape  {
             this.myRectangle.setStrokeWidth(Double.parseDouble(split[6]));
         }else {
 
-            System.out.println(st);
+            
             throw new InputMismatchException();
         }
     }
+
+    /**
+     * <p>
+     * 
+     * This is a constructor for myRectangle with a type Rectangle (Javafx) as input parameter. 
+     * This method create an object of a class MyRectngle with Rectangle parameter in this way MyRectangle 
+     * can encapsulate the object Rectangle.
+     * 
+     * <p><!-- -->
+     * @param rectangle
+     */ 
 
     public MyRectangle(Rectangle rectangle) {
         this.myRectangle = rectangle;
@@ -76,7 +104,21 @@ public class MyRectangle implements MyShape  {
     }
 
    
-
+    /**
+    * <p>
+    * 
+    * This is a constructor for myRectangle with  pressedPoint_x,  pressedPoint_y, strokeColor, fillColor, isFill as input parameter.
+    * This method create an object of a class MyRectngle with point(pressedPoint_x, pressedPoint_y) as upper corner point of the rectangle 
+    * with strokeColor, if isFill is true with fillColor and with strokeWidth=3. The MyRectangle create have height and width equals to 0
+    * <p><!-- -->
+    *@param pressedPoint_x  
+    *@param pressedPoint_y
+    *@param strokeColor
+    *@param fillColor
+    *@param isFill
+    *
+    *
+    */
     public MyRectangle(double pressedPoint_x, double pressedPoint_y, Color strokeColor, Color fillColor, boolean isFill) {
         this.myRectangle = new Rectangle(pressedPoint_x, pressedPoint_y, 0, 0);
         this.pressedPoint_x = pressedPoint_x;
@@ -91,6 +133,9 @@ public class MyRectangle implements MyShape  {
 
     
     /** 
+     * <p>
+     * Method to set the fillColor of a MyRectangle
+     * <p><!-- -->
      * @param fillColor
      */
     public void setFillColor(Color fillColor){
@@ -102,6 +147,9 @@ public class MyRectangle implements MyShape  {
 
     
     /** 
+     * <p>
+     * Method to set the strokeColor of a MyRectangle
+     * <p><!-- -->
      * @param strokeColor
      */
     public void setStrokeColor(Color strokeColor){
@@ -112,6 +160,10 @@ public class MyRectangle implements MyShape  {
 
     
     /** 
+     * <p>
+     * Method to set the Height of MyRectangle respect the y coordinate of the dragPoint. This method verify if the coordinate y of
+     * a dragPoint is a coordinate of a Drawing Surface else set it in the Drawing Surface and calculate the Heigth for MyRectangle and set it.
+     * <p><!-- -->
      * @param dragPoint_y
      */
     public void setHeight(double dragPoint_y){
@@ -132,6 +184,11 @@ public class MyRectangle implements MyShape  {
 
     
     /** 
+     * 
+     * <p>
+     * Method to set the Width  of MyRectangle respect the  x coordinate of the dragPoint. This method verify if the coordinate x of
+     * a dragPoint is a coordinate  of a Drawing Surface else set it in the Drawing Surface and calculate the Width for MyRectangle and set it.
+     * <p><!-- -->
      * @param dragPoint_x
      */
     public void setWidth(double dragPoint_x){
@@ -150,6 +207,9 @@ public class MyRectangle implements MyShape  {
 
     
     /** 
+     * <p>
+     * This method perform the operation of drawing of a MyRectangle on drawing surface
+     * <p><!-- -->
      * @param drawingSurface
      */
     @Override
@@ -162,6 +222,9 @@ public class MyRectangle implements MyShape  {
 
     
     /** 
+     * <p>
+     * Method to get the attribure myRectangle of the object 
+     * <p><!-- -->
      * @return Rectangle
      */
     public Rectangle getMyRectangle() {
@@ -170,6 +233,9 @@ public class MyRectangle implements MyShape  {
 
     
     /** 
+     * <p>
+     * Method to get the attribure pressedPoint_x_ of the object  that rappresent the coordinate x of the upper left corner of the object Rectangle
+     * <p><!-- -->
      * @return double
      */
     public double getPressedPoint_x() {
@@ -178,6 +244,9 @@ public class MyRectangle implements MyShape  {
 
     
     /** 
+     * <p>
+     * Method to get the attribure pressedPoint_y of the object  that rappresent the coordinate y the upper left corner of the object Rectangle
+     * <p><!-- -->
      * @return double
      */
     public double getPressedPoint_y() {
@@ -186,6 +255,10 @@ public class MyRectangle implements MyShape  {
 
     
     /** 
+     * 
+     * <p>
+     * Method for updating the arrtibute of MyRectangle respect the coordinate x,y of a drag Point
+     * <p><!-- -->
      * @param dragPoint_x
      * @param dragPoint_y
      */
@@ -198,12 +271,12 @@ public class MyRectangle implements MyShape  {
     }
    
    /** 
+    * <p>
+    *Method for cloning the object MyRectangle, it create other MyRectangle that have the same parameter.
+    <p><!-- -->
     * @return MyRectangle
     */
-   /*  public MyRectangle(double x, double y, double width, double height){
-        this.myRectangle = new Rectangle(x, y, width, height);
-        this.
-    }*/
+
 
     @Override
     public MyRectangle cloneShape() {
@@ -219,15 +292,19 @@ public class MyRectangle implements MyShape  {
                         MyRectangle clone = new MyRectangle(shapeForCopy);
                         
                         return clone;
-                        //drawingPane.getChildren().remove(rect);
-                        //drawingPane.getChildren().add(clone);
-                        //selection.setShape_element(clone);
+                        
         
         
     }
 
     
     /** 
+     * 
+     * <p>
+     * 
+     * Method to get Shape that compose MyRectangle
+     * 
+     * <p><!-- -->
      * @return Shape
      */
     @Override
@@ -238,6 +315,12 @@ public class MyRectangle implements MyShape  {
 
     
     /** 
+     * 
+     * <p>
+     *
+     * This method return the Rectangle that rappresented the scene of the MyRectangle
+     *  
+     * <p><!-- -->
      * @return Rectangle
      */
     @Override
@@ -258,6 +341,10 @@ public class MyRectangle implements MyShape  {
 
     
     /** 
+     * 
+     * <p>
+     * This method verify if a string lineCurrent rappresent a myRectangle
+     * <p><!-- -->
      * @param lineCurrent
      * @return boolean
      */
