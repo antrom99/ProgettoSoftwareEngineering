@@ -193,6 +193,6 @@
       </VBox>
    </top>
    <center>
-      <Pane fx:id="Canvas" maxHeight="675.0" maxWidth="773.0" minHeight="675.0" minWidth="773.0" onMouseDragged="#dragOperation" onMousePressed="#clickPoint" onMouseReleased="#clickRelase" prefHeight="675.0" prefWidth="773.0" BorderPane.alignment="CENTER" />
+      <Pane fx:id="Canvas" maxHeight="675.0" maxWidth="773.0" minHeight="675.0" minWidth="773.0"  prefHeight="675.0" prefWidth="773.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

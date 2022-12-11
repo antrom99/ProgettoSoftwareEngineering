@@ -30,24 +30,12 @@ public class SelectionCommand implements Command{
     public void execute() {
 
         
-        if (this.node instanceof Shape){
+        if (this.node instanceof Shape ){
             Shape shape_selected = (Shape) node;
+           
+            selection.add(shape_selected);
+            selection.addView(drawingSurface);}
             
-            if (selection.contains(shape_selected)){
-
-                
-                selection.clear(drawingSurface);
-                
-            }else{
-                selection.clear(drawingSurface);
-                selection.add(shape_selected);
-                selection.addView(drawingSurface);
-            }
-
-            
-        }else{
-            selection.clear(drawingSurface);
-        }
         
      }
         

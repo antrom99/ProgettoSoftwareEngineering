@@ -154,11 +154,6 @@ public class MyLine implements MyShape{
         );
 
         return rect;
-    }
-
-   
-
-
-    
+    }  
 
 }

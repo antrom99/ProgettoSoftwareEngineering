@@ -8,9 +8,9 @@ import javafx.scene.layout.Pane;
 public class DrawCommand implements Command  {
 
     private MyShape shape;
-    private /*GraphicsContext drawingSurface*/ Pane drawingSurface;
+    private Pane drawingSurface;
 
-    public DrawCommand(MyShape shape, /*GraphicsContext drawingSurface*/ Pane drawingSurface) {
+    public DrawCommand(MyShape shape, Pane drawingSurface) {
         this.shape = shape;
         this.drawingSurface = drawingSurface;
     }
@@ -20,7 +20,7 @@ public class DrawCommand implements Command  {
         
         
         this.shape.draw(this.drawingSurface);
-       //drawingSurface.getChildren().add((Node) this.shape);
+       
         
     }
 

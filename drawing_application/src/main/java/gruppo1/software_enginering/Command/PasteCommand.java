@@ -22,12 +22,16 @@ public class PasteCommand implements Command{
 
     @Override
     public void execute() {
- 
-        Command command_for_paste = new DrawCommand(shapeCopy, drawingSurface);
-        command_for_paste.execute();;
-        Command command_for_selection = new SelectionCommand(selection, shapeCopy.getShape(), drawingSurface);
-        command_for_selection.execute();
-        selection.setShape_element(shapeCopy.getShape());
+
+        if (shapeCopy!=null){
+
+            Command command_for_paste = new DrawCommand(shapeCopy, drawingSurface);
+            command_for_paste.execute();;
+            Command command_for_selection = new SelectionCommand(selection, shapeCopy.getShape(), drawingSurface);
+            command_for_selection.execute();
+            selection.setShape_element(shapeCopy.getShape());
+
+        }
         
     }
 

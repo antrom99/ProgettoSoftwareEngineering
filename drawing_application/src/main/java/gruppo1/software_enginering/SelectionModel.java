@@ -3,19 +3,14 @@ import gruppo1.software_enginering.Shape.MyShape;
 import gruppo1.software_enginering.Shape.ShapeFactory;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
-import javafx.scene.transform.Rotate;
 
 public class SelectionModel {
 
     private Rectangle view_element = new Rectangle();
     private Shape shape_element = new Rectangle();
-    private Rotate  rotate= new Rotate();
-    private Circle rotateCircle = new Circle(5);
-    private  Circle resizeCircle = new Circle(5);
+
    
     
     /** 
@@ -27,26 +22,11 @@ public class SelectionModel {
         shape_element = (Shape) node;
         ShapeFactory shapeFactory = new ShapeFactory(shape_element) ;
         MyShape shapeSelected = shapeFactory.getShape();
-        resizeCircle.setFill(Color.TRANSPARENT);
-        rotateCircle.setStroke(Color.BLUE);
-        resizeCircle.setStroke(Color.BLUE);
-        rotateCircle.setFill(Color.TRANSPARENT);
         shape_element.setViewOrder((-1));
         view_element = shapeSelected.view();
-        rotate.setPivotX((view_element.getX() + view_element.getWidth()) / 2);
-        rotate.setPivotY((view_element.getY() + view_element.getHeight()) / 2);
         view_element.translateXProperty().bind(shape_element.translateXProperty());
         view_element.translateYProperty().bind(shape_element.translateYProperty());
-        resizeCircle.centerXProperty().bind(view_element.xProperty());
-        resizeCircle.centerYProperty().bind(view_element.yProperty());
-        rotateCircle.centerXProperty().bind(view_element.xProperty().add(view_element.widthProperty().divide(2)));
-        rotateCircle.centerYProperty().bind(view_element.yProperty().subtract(15d));
-        resizeCircle.translateXProperty().bind(shape_element.translateXProperty());
-        rotateCircle.translateXProperty().bind(shape_element.translateXProperty());
-        resizeCircle.translateYProperty().bind(shape_element.translateYProperty());
-        rotateCircle.translateYProperty().bind(shape_element.translateYProperty());
-        //view_element.translateXProperty().bind(resizeCircle.centerXProperty());
-        //view_element.translateYProperty().bind(resizeCircle.centerYProperty());
+
            
     }
     
@@ -57,7 +37,7 @@ public class SelectionModel {
     public void addView(Pane drawingSurface){
        
         if(view_element!=null){
-            drawingSurface.getChildren().addAll(view_element, resizeCircle, rotateCircle);
+            drawingSurface.getChildren().add(view_element);
         
         }
          
@@ -81,7 +61,7 @@ public class SelectionModel {
     public void remove(Rectangle selcted, Pane drawingSurface){
         
         view_element=null;
-        drawingSurface.getChildren().removeAll(selcted,resizeCircle,rotateCircle);
+        drawingSurface.getChildren().removeAll(selcted);
 
     }
    
@@ -145,29 +125,7 @@ public class SelectionModel {
     }
 
     
-    /** 
-     * @return Rotate
-     */
-    public Rotate getRotate() {
-        return rotate;
-    }
-
-    
-    /** 
-     * @return Circle
-     */
-    public Circle getRotateCircle() {
-        return rotateCircle;
-    }
-
-    
-    /** 
-     * @return Circle
-     */
-    public Circle getResizeCircle() {
-        return resizeCircle;
-    }
-
+   
     
 
 
