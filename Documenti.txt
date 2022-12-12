@@ -1,26 +1,36 @@
 Product Backlog -------------------------------------------------------------------------------------------------------------------------------------------
-	link: https://drive.google.com/file/d/1_owTuZrpUs2lLyzE2NqKHsiwZoagB7up/view
+	link: https://drive.google.com/file/d/1sQ9eoTPBsIKHD1gO3qAt8SELtPWvEXfb/view
 Software Architecture -------------------------------------------------------------------------------------------------------------------------------------
 	link: https://drive.google.com/file/d/1P8gjZkTN5IylcJsBZMmPUzVNuq15g82T/view?usp=share_link
 Pre-Game --------------------------------------------------------------------------------------------------------------------------------------------------
 	link: https://docs.google.com/presentation/d/1mk8jT-t6VtdLlY_BMlfm5ies4qUxkSKi/edit?usp=share_link&ouid=114462043892078627059&rtpof=true&sd=true
 Product Backlog First Sprint ------------------------------------------------------------------------------------------------------------------------------
-	link: https://drive.google.com/file/d/1lNMu7WH4iWtV2jmdlc5gX3s6BfU6K8Dv/view?usp=share_link
+	link: https://drive.google.com/file/d/1lNMu7WH4iWtV2jmdlc5gX3s6BfU6K8Dv/view
 Refinement Software Architecture First Sprint -------------------------------------------------------------------------------------------------------------
 	link: https://drive.google.com/file/d/14sDP8QtTDJ9xhyd_K3-uOGMnm-y-C0PV/view?usp=share_link
 Retrospective First Sprint --------------------------------------------------------------------------------------------------------------------------------
 	link: https://drive.google.com/file/d/1BJAWssxaWKnDV6xRdWaetyOCZQFGuArQ/view?usp=share_link
 Review First Sprint Report --------------------------------------------------------------------------------------------------------------------------------
-	link: https://drive.google.com/file/d/12iTfr3mF5soS01kvF2uG2skU7HWcvi25/view?usp=sharE_link
+	link: https://drive.google.com/file/d/12iTfr3mF5soS01kvF2uG2skU7HWcvi25/view
 First Sprint ----------------------------------------------------------------------------------------------------------------------------------------------
 	link: https://unisalerno-my.sharepoint.com/:p:/g/personal/a_nocerino15_studenti_unisa_it/EYMaaO3kTpdNmT-PYTGb8f0BuJycRdcHzmDSQamPVj9-3w?e=fHDxDe
 Product Backlog Second Sprint -----------------------------------------------------------------------------------------------------------------------------
-	link: https://drive.google.com/drive/u/1/folders/1TgE3ebcbHkTJv6hbi76Dy_VcW2lJgIoI
+	link: https://drive.google.com/file/d/12yg2CmbafSIo35X9Z160AiGKSgUgZX_X/view
 Retrospective Second Sprint --------------------------------------------------------------------------------------------------------------------------------
-	link: https://drive.google.com/file/d/1N-3VLnnusrkBRnouef_Z_7VBPVcK3BlQ/view
+	link: https://drive.google.com/file/d/1kdKEKDxkLr8W57MaH1EsfPA9XC-WT85h/view
 Review Second Sprint Report --------------------------------------------------------------------------------------------------------------------------------
-	link: https://drive.google.com/file/u/1/d/1LI7En320OGLh0VEwtoAZId737U9pGvtZ/view?usp=drive_open
+	link: https://drive.google.com/file/d/1LI7En320OGLh0VEwtoAZId737U9pGvtZ/view
+Refinement Software Architecture Second Sprint -------------------------------------------------------------------------------------------------------------
+	link: https://drive.google.com/file/d/1t36tufCBBEhl_B-RCHRrIpxF_I-oZzTf/view	
 Second Sprint ----------------------------------------------------------------------------------------------------------------------------------------------
 	link: https://docs.google.com/presentation/d/1TigfzvqavdMfM3bHVE4rFtwGl6o2yiWr/edit#slide=id.p1
 Product Backlog Third Sprint -----------------------------------------------------------------------------------------------------------------------------
-	link: https://drive.google.com/file/d/14Zxdehw_jIOYuYHZsw8dVN7v25LGG1Sp/view
+	link: https://drive.google.com/file/d/1NeSKCSo5uJG8rGK5MFpoOQQWEPKqKl0p/view
+Retrospective Third Sprint --------------------------------------------------------------------------------------------------------------------------------
+	link: https://drive.google.com/file/d/1g6d-g_bvbGQGsWx_3LxDpYtbwUHLazg3/view
+Review Third Sprint Report --------------------------------------------------------------------------------------------------------------------------------
+	link: https://drive.google.com/file/d/1fsUPxw3Phbxt14mNY-pB-wUUcWDQ3Qxd/view
+Refinement Software Architecture Third Sprint -------------------------------------------------------------------------------------------------------------
+	link: https://drive.google.com/file/d/1EcIvqcHuf8lz2vzZalgKtzx4ZzPGwID9/view
+Third Sprint ----------------------------------------------------------------------------------------------------------------------------------------------
+	link: 
