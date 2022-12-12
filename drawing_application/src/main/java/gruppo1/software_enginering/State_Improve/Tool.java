@@ -4,7 +4,12 @@ import gruppo1.software_enginering.Command.Command;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-
+/**
+ * 
+ * <p> 
+ * Interface Tool fo the state of my application
+ * <p><!-- -->
+ */
 public interface Tool {
 
     public default Command onMousePressed(Pane drawingSurface,Node node,  double pressed_x, double pressed_y){

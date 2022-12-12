@@ -9,7 +9,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-
+/**
+ * 
+ * <p>
+ * 
+ * Class that describe the state for drawing a line
+ * <p><!-- -->
+ */
 public class ToolLineDraw implements Tool {
 
     private MyLine myline;

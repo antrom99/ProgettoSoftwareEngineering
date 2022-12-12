@@ -11,6 +11,12 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
+/**
+ * <p>
+ * State for the context menu
+ * <p><!-- -->
+ */
+
 public class ToolContextMenu implements Tool{
 
     private ContextMenu contextMenu = new ContextMenu(); 

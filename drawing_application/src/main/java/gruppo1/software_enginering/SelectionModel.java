@@ -5,7 +5,11 @@ import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
-
+/**
+ * <p>
+ * Class for the mode of selection
+ * <p><!-- -->
+ */
 public class SelectionModel {
 
     private Rectangle view_element = new Rectangle();

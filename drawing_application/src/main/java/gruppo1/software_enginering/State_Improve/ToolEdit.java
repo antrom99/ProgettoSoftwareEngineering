@@ -6,7 +6,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
-
+/**
+ * 
+ * <p>
+ * Class for the state of edit 
+ * <p><!-- -->
+ */
 public class ToolEdit implements Tool{
 
 

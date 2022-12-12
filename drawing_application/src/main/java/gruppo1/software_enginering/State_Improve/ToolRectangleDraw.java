@@ -10,6 +10,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
+
+/**
+ * <p>
+ * 
+ * Class that describe the state for drawing a rectangle
+ * <p><!-- -->
+ */
+
 public class ToolRectangleDraw implements Tool {
 
     public ToolRectangleDraw(Color strokeColor, Color fillColor, boolean isFill, ImageView image) {

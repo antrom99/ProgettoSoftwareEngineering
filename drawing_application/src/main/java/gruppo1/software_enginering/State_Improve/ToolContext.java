@@ -8,6 +8,14 @@ import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
+/**
+ * 
+ * <p>
+ * 
+ * Class Context for the managing of State
+ * <p><!-- -->
+ */
+
 public class ToolContext {
 
 

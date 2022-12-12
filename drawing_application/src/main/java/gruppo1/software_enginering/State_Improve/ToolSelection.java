@@ -15,6 +15,12 @@ import javafx.scene.paint.Color;
 //idea = stato di edit = nel costruttore --> istanzio l'immagine 
 //devo sapere quale shape è stato selezionato
 
+/**
+ *  <p>
+ * Class that describe the state for selection of a shape
+ * <p><!-- -->
+ */
+
 public class ToolSelection implements Tool {
     private SelectionModel selection = new SelectionModel();
     //private Node shape ;
